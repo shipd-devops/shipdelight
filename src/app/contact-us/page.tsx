@@ -78,16 +78,8 @@ export default function Home() {
                 "Value": values.query
             },
             {
-                "Attribute": "SourceMedium",
-                "Value": "contact-us"
-            },
-            {
-                "Attribute": "mx_Form_Name",
-                "Value": "Contact From"
-            },
-            {
                 "Attribute": "Source",
-                "Value": "Pricing Landing Page"
+                "Value": "Contact Us Page"
             }
         ];
         console.log(formData, 'formData')

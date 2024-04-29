@@ -61,7 +61,7 @@ export default function Home() {
         const apiUrl = 'https://api-in21.leadsquared.com/v2/LeadManagement.svc/Lead.Capture?accessKey=u$rbfb42d135952938f62e7764d1d33ee22&secretKey=00c332128197e768fca341da764053530842f760';
         const formData = [
             {
-                "Attribute": "SelectedServices",
+                "Attribute": "mx_SelectedServices",
                 "Value": JSON.stringify(selectedButtons)
             },
             {
@@ -82,11 +82,7 @@ export default function Home() {
             },
             {
                 "Attribute": "SourceMedium",
-                "Value": values.formName
-            },
-            {
-                "Attribute": "mx_Form_Name",
-                "Value": "Pricing Landing Page"
+                "Value": values.source
             },
             {
                 "Attribute": "Source",

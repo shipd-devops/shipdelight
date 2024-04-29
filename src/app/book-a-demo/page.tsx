@@ -66,15 +66,11 @@ export default function Home() {
             },
             {
                 "Attribute": "SourceMedium",
-                "Value": "book-a-demo"
-            },
-            {
-                "Attribute": "mx_Form_Name",
-                "Value": "Pricing Landing Page"
+                "Value": values.source
             },
             {
                 "Attribute": "Source",
-                "Value": "Pricing Landing Page"
+                "Value": "Booking A Demo"
             }
         ];
         console.log(formData, 'formData')
