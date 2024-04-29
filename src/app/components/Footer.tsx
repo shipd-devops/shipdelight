@@ -1,9 +1,10 @@
 'use client'
 import React, { FC, useState, useEffect } from 'react'
+import { useRouter } from "next/navigation"
 import Image from 'next/image';
 import Link from 'next/link';
 import '../styles/footer.css'
-import { Button, Input, Flex } from 'antd';
+import { Button, Input, Flex, Form } from 'antd';
 // IMAGES
 import LinkedIn from '../../../public/images/linkedin.svg'
 import InstagramIcon from '../../../public/images/instagram.svg'
@@ -15,6 +16,12 @@ import MailIcon from '../../../public/images/mail.svg'
 import PhoneIcon from '../../../public/images/phone.svg'
 
 const Footer: FC = () => {
+    const router = useRouter();
+    const handleSendEmail = (values: any) => {
+        localStorage.setItem('name', values.name);
+        localStorage.setItem('number', values.number);
+        router.push(`/contact-us`)
+    }
     return (
        <>
             <footer>
@@ -24,11 +31,25 @@ const Footer: FC = () => {
                             <div className="footer--cta--content">
                                 <h2>One step away from solving logistic puzzles of your brand</h2>
                                 <p>Let’s connect to understand how we can help you to solve puzzle</p>
-                                <Flex gap={10}>
-                                    <Input placeholder="Full Name" />
-                                    <Input prefix="+91" type='tel' placeholder="XXXXX XXXXX" />
-                                </Flex>
-                                <Button type='primary'>Submit</Button>
+                                <Form onFinish={handleSendEmail}>
+                                    <Flex gap={10}>
+                                        <Form.Item
+                                            style={{width: '100%', marginBottom: '0'}}
+                                            name="name"
+                                            rules={[{ required: true, message: 'Please enter your name!' }]}
+                                        >
+                                            <Input placeholder="Full Name" />
+                                        </Form.Item>
+                                        <Form.Item
+                                            name="number"
+                                            style={{width: '100%', marginBottom: '0'}}
+                                            rules={[{ required: true, message: 'Please enter your number!' }]}
+                                        >
+                                            <Input prefix="+91" type='number' minLength={10} placeholder="XXXXX XXXXX" />
+                                        </Form.Item>
+                                    </Flex>
+                                    <Button htmlType="submit" type='primary'>Submit</Button>
+                                </Form>
                             </div>
                             <Image src={GuidesImage} alt='footer-img' className='guides' />
                             <div className='footer--cta--image'>

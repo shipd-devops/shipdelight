@@ -2,6 +2,7 @@
 import React from 'react'
 import { Button, Collapse, Flex } from 'antd';
 import Image from "next/image";
+import Link from 'next/link';
 import type { CollapseProps } from 'antd';
 import SmallCard from '@/app/components/SmallCard';
 import StateCard from '@/app/components/StateCard';
@@ -105,9 +106,7 @@ const page = () => {
                             <h2>Step into the future of electronics shipping with ShipDelight</h2>
                             <p className="title-desc">India's electronics industry is thriving, driven by technological advancements, increasing consumer demand, and a rapidly expanding digital economy.</p>
                         </div>
-                        <Button type="primary" className='btn-main'>
-                            Get Started
-                        </Button>
+                        <Link href="/contact-us" className='ant-btn ant-btn-primary btn-main'><span>Get Started</span></Link>
                     </div>
                 </div>
             </section>

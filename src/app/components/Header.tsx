@@ -116,7 +116,7 @@ const Header: FC = () => {
               </div>
           </div>
           <div className="header-dropdown--item">
-              <Link href={'platforms/ulogix'}>
+              <Link href={'/platforms/ulogix'}>
                   <div className="svg-div">
                       <UlogixIcon />
                   </div>
@@ -196,7 +196,7 @@ const Header: FC = () => {
                               <p className='title-main'>Exchange</p>
                           </div>
                       </Link>
-                      <Link href={'/solution/returns'} className='header-dropdown--link'>
+                      <Link href={'/solution/refunds'} className='header-dropdown--link'>
                           <div>
                               <p className='title-main'>Refunds</p>
                           </div>
@@ -255,12 +255,12 @@ const Header: FC = () => {
                       </Link>
                       <Link href={'/solution/biker-app'} className='header-dropdown--link'>
                           <div>
-                              <p className='title-main'>Delivery Partners</p>
+                              <p className='title-main'>Biker Application</p>
                           </div>
                       </Link>
                       <Link href={'/solution/logistics-erp'} className='header-dropdown--link'>
                           <div>
-                              <p className='title-main'>Fleet Owners</p>
+                              <p className='title-main'>Logistics ERP</p>
                           </div>
                       </Link>
                   </div>
@@ -343,7 +343,7 @@ const Header: FC = () => {
                           <p className='title-main'>Foods & Beverages</p>
                       </div>
                   </Link>
-                  <Link href={'/industry/industry/sports'} className='header-dropdown--link'>
+                  <Link href={'/industry/sports'} className='header-dropdown--link'>
                       <div>
                           <p className='title-main'>Sports & Utilities</p>
                       </div>

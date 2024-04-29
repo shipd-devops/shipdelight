@@ -217,7 +217,7 @@ export default function Home() {
     ];
     const router = useRouter();
     const handleSendEmail = (values: any) => {
-        localStorage.setItem('email', JSON.stringify(values.email));
+        localStorage.setItem('email', values.email);
         router.push(`/book-a-demo`)
     }
     return (

@@ -17,6 +17,7 @@ import ShopifyIcon from '../../../../public/images/shopify.svg'
 import FeatureSection from '@/app/components/FeatureSection';
 import WorkFlowCard from '@/app/components/WorkFlowCard';
 import BenefitCard from '@/app/components/BenefitCard';
+import BookDemo from '@/app/components/BookDemo';
 import { reverse } from 'dns';
 
 
@@ -108,12 +109,7 @@ const page = () => {
                             <h2>Drive Customer Satisfaction with Precision: Logistics ERP</h2>
                             <p className="title-desc">Your Solution for eCommerce Logistics Excellence.</p>
                         </div>
-                        <div className="search-bar book-demo">
-                            <Space.Compact style={{ width: '100%' }}>
-                                <Input type='email' placeholder="Your work email address" />
-                                <Button type="primary" className="btn-main">Book a Demo</Button>
-                            </Space.Compact>
-                        </div>
+                        <BookDemo data={true} />
                     </div>
                     <div className='banner-img-section'>
                         <Image src={SolutionBannerImage} alt="solution page banner" className="banner-img" />

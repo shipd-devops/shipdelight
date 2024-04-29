@@ -5,6 +5,7 @@ import Image from "next/image";
 import type { CollapseProps } from 'antd';
 import SmallCard from '@/app/components/SmallCard';
 import StateCard from '@/app/components/StateCard';
+import Link from 'next/link';
 // IMAGES
 import ValueImg from "../../../../public/images/key-feature-food.webp"
 import ValueImg2 from "../../../../public/images/key-feature-food-2.webp"
@@ -103,9 +104,7 @@ const page = () => {
                             <h2>Delivering Quality and Freshness to Every Table</h2>
                             <p className="title-desc">India's food and beverage industry is a vibrant and integral part of the nation's culture and economy.</p>
                         </div>
-                        <Button type="primary" className='btn-main'>
-                            Get Started
-                        </Button>
+                        <Link href="/contact-us" className='ant-btn ant-btn-primary btn-main'><span>Get Started</span></Link>
                     </div>
                 </div>
             </section>

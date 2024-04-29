@@ -25,16 +25,18 @@ export default function Home() {
     // const searchParams: any = useSearchParams();
     // const search: any = searchParams?.get('email');
     const [mailLocal, setMailLocal] = useState<any>('');
+    const [forceRender, setForceRender] = useState(false);
     useEffect(() => {
-        // Set item in Local Storage
-        setTimeout(() => {
-            const item = localStorage.getItem('email');
-            setMailLocal(item)
-        }, 1000);
+        const item = localStorage.getItem('email');
+        setMailLocal(item)
     }, []);
+    useEffect(() => {
+        setForceRender(prevState => !prevState);
+    }, [mailLocal]);
     const initialValues = {
-        mail: mailLocal
+        mail: mailLocal || ''
     };
+    console.log(initialValues, mailLocal)
     type FieldType = {
         name?: string;
         number?: string;
@@ -42,7 +44,6 @@ export default function Home() {
         companyName?: string;
         source?: string;
     };
-    // console.log(initialValues, mailLocal)
     const onFinish = async (values: any) => {
         console.log(values, 'values')
         // Define the API endpoint
@@ -112,6 +113,7 @@ export default function Home() {
                                         onFinishFailed={onFinishFailed}
                                         initialValues={initialValues}
                                         autoComplete="off"
+                                        key={forceRender ? 'forceRender' : 'normal'}
                                     >
                                         <Form.Item<FieldType>
                                             name="name"
@@ -139,7 +141,7 @@ export default function Home() {
                                             rules={[{ required: true, message: 'Please enter your phone number!' }]}
                                             hasFeedback
                                         >
-                                            <Input type='number' placeholder='Phone number' />
+                                            <Input type='number' placeholder='Phone number' minLength={10} />
                                         </Form.Item>
                                         <Form.Item<FieldType> name="source" rules={[{ required: true, message: 'Please enter source!' }]}>
                                             <Select

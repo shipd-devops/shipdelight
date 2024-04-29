@@ -8,6 +8,7 @@ import BrandList from "@/app/components/BrandsList";
 import SmallCard from "@/app/components/SmallCard";
 import CommonLeftRight from "@/app/components/CommonLeftRight";
 import WorkContainer from "@/app/components/WorkContainer";
+import BookDemo from "@/app/components/BookDemo";
 import { useRouter } from "next/navigation";
 
 // IMAGES
@@ -158,12 +159,7 @@ export default function Home() {
                 <div className="container">
                     <Ilogix />
                     <h1 className="small">Navigate Routes, Deliver Smiles: ShipDelight's Biker App.</h1>
-                    <div className="search-bar book-demo">
-                        <Space.Compact style={{ width: '100%' }}>
-                            <Input type='email' placeholder="Your work email address" />
-                            <Button onClick={()=>{router.push('/book-a-demo')}} className="btn-main features-btn" type="primary">Book a Demo</Button>
-                        </Space.Compact>
-                    </div>
+                    <BookDemo data={true} />
                     <Image src={WhiteGuide} alt="white guide" className="white-guide" />
                     <div className="platform-banner--image">
                         <Image src={Platform} alt="Platform" />
@@ -236,12 +232,7 @@ export default function Home() {
             <section className="gradient-section platform-banner platform-footer">
                 <div className="container">
                     <h2>Explore More Logistics Solutions from <span>eLogix</span></h2>
-                    <div className="search-bar book-demo">
-                        <Space.Compact style={{ width: '100%' }}>
-                            <Input type='email' placeholder="Your work email address" />
-                            <Button type="primary" className="btn-main">Book a Demo</Button>
-                        </Space.Compact>
-                    </div>
+                    <BookDemo data={true} />
                     <Image src={WhiteGuide} alt="white guide" className="white-guide" />
                     <div className="platform-banner--image">
                         <Image src={PlatformFooter} alt="Platform" />

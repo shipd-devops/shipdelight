@@ -5,6 +5,7 @@ import Image from "next/image";
 import StateCard from '../components/StateCard';
 import BrandList from '../components/BrandsList';
 import SimpleTwoCol from '../components/SimpleTwoCol';
+import BookDemo from '../components/BookDemo';
 import { useRouter } from "next/navigation";
 
 // IMAGES
@@ -65,12 +66,7 @@ const page = () => {
                         <div>
                             <h2>Our mission is to lead a logistics revolution powered by smart technology for modern Bharat.</h2>
                         </div>
-                        <div className="search-bar book-demo">
-                            <Space.Compact style={{ width: '100%' }}>
-                                <Input type='email' placeholder="Your work email address" />
-                                <Button type="primary" className="btn-main">Book a Demo</Button>
-                            </Space.Compact>
-                        </div>
+                        <BookDemo data={true} />
                     </div>
                 </div>
             </section>

@@ -17,6 +17,7 @@ import FeatureSection from '@/app/components/FeatureSection';
 import WorkFlowCard from '@/app/components/WorkFlowCard';
 import BenefitCard from '@/app/components/BenefitCard';
 import StateCard from '@/app/components/StateCard';
+import BookDemo from '@/app/components/BookDemo';
 import { title } from 'process';
 
 const page = () => {
@@ -116,12 +117,7 @@ const page = () => {
                             <h2>Secure Transactions, Seamless Shopping with ShipDelight COD</h2>
                             <p className="title-desc">Cash on Delivery (COD)is a vital component of e-commerce in India, catering to the unique preferences and needs of Indian consumers.</p>
                         </div>
-                        <div className="search-bar book-demo">
-                            <Space.Compact style={{ width: '100%' }}>
-                                <Input type='email' placeholder="Your work email address" />
-                                <Button type="primary" className="btn-main">Book a Demo</Button>
-                            </Space.Compact>
-                        </div>
+                        <BookDemo data={true} />
                     </div>
                     <div className='banner-img-section'>
                         <Image src={SolutionBannerImage} alt="solution page banner" className="banner-img" />

@@ -14,6 +14,7 @@ import BottomImg from '../../../../public/images/bottom-section-btb.webp'
 import FeatureSection from '@/app/components/FeatureSection';
 import WorkFlowCard from '@/app/components/WorkFlowCard';
 import BenefitCard from '@/app/components/BenefitCard';
+import BookDemo from '@/app/components/BookDemo';
 
 
 const page = () => {
@@ -88,12 +89,7 @@ const page = () => {
                             <h2>Elevating B2B Logistics</h2>
                             <p className="title-desc">Retail Delight by ShipDelight offers a unified logistics solution, harmonizing Offline Operations to elevate your Retail Experience.</p>
                         </div>
-                        <div className="search-bar book-demo">
-                            <Space.Compact style={{ width: '100%' }}>
-                                <Input type='email' placeholder="Your work email address" />
-                                <Button type="primary" className="btn-main">Book a Demo</Button>
-                            </Space.Compact>
-                        </div>
+                        <BookDemo data={true} />
                     </div>
                     <div className='banner-img-section'>
                         <Image src={SolutionBannerImage} alt="solution page banner" className="banner-img" />
@@ -153,12 +149,7 @@ const page = () => {
                     <div className='banner-info-section full center footer'>
                         <Flex vertical align='center'>
                             <h2>Explore More Logistics Solutions from <span> ShipDelight </span></h2>
-                            <div className="search-bar book-demo">
-                                <Space.Compact style={{ width: '100%' }}>
-                                    <Input type='email' placeholder="Your work email address" />
-                                    <Button type="primary" className="btn-main">Book a Demo</Button>
-                                </Space.Compact>
-                            </div>
+                            <BookDemo data={true} />
                         </Flex>
                         <div className='solution-footer-img'>
                             <Image src={BottomImg} alt="bottom image" className="banner-img" />

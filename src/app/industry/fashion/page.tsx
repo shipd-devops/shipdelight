@@ -3,6 +3,7 @@ import React from 'react'
 import { Button, Collapse, Flex } from 'antd';
 import Image from "next/image";
 import type { CollapseProps } from 'antd';
+import Link from 'next/link';
 import SmallCard from '@/app/components/SmallCard';
 import StateCard from '@/app/components/StateCard';
 // IMAGES
@@ -103,9 +104,7 @@ const page = () => {
                             <h2>Seamlessly Connecting Fashion to Customers</h2>
                             <p className="title-desc">India's fashion industry is experiencing a remarkable evolution, driven by a burgeoning middle class, increasing disposable income, and a growing preference for online shopping.</p>
                         </div>
-                        <Button type="primary" className='btn-main'>
-                            Get Started
-                        </Button>
+                        <Link href="/contact-us" className='ant-btn ant-btn-primary btn-main'><span>Get Started</span></Link>
                     </div>
                 </div>
             </section>

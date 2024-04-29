@@ -15,6 +15,7 @@ import ShopifyIcon from '../../../../public/images/shopify.svg'
 import FeatureSection from '@/app/components/FeatureSection';
 import WorkFlowCard from '@/app/components/WorkFlowCard';
 import BenefitCard from '@/app/components/BenefitCard';
+import BookDemo from '@/app/components/BookDemo';
 import { reverse } from 'dns';
 
 
@@ -90,12 +91,7 @@ const page = () => {
                             <h2>Unlock the Power of Easy Exchanges with ShipDelight</h2>
                             <p className="title-desc">Speedy refunds are key to earning customer satisfaction and loyalty.</p>
                         </div>
-                        <div className="search-bar book-demo">
-                            <Space.Compact style={{ width: '100%' }}>
-                                <Input type='email' placeholder="Your work email address" />
-                                <Button type="primary" className="btn-main">Book a Demo</Button>
-                            </Space.Compact>
-                        </div>
+                        <BookDemo data={true} />
                     </div>
                     <div className='banner-img-section'>
                         <Image src={SolutionBannerImage} alt="solution page banner" className="banner-img" />

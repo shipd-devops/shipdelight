@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button, Flex, Space, Input } from 'antd';
 import CommonLeftRight from "@/app/components/CommonLeftRight";
+import BookDemo from "@/app/components/BookDemo";
 // IMAGES
 import Ilogix from '../../../../public/images/u-logix-main.svg'
 import StarWhite from '../../../../public/images/stars.svg'
@@ -50,12 +51,7 @@ export default function Home() {
                     <h1 className="small">ULogix: Mastering Logistics, Amplifying Your Brand's Voice Across the Supply Chain.</h1>
                     <div>
                         <p className="u-logix--cta">Get notified when we launch and get a <span>early access</span></p>
-                        <div className="search-bar book-demo">
-                            <Space.Compact style={{ width: '100%' }}>
-                                <Input type='email' placeholder="Your work email address" />
-                                <Button type="primary" className="btn-main">Join the Waitlist <StarWhite /></Button>
-                            </Space.Compact>
-                        </div>
+                        <BookDemo data={true} />
                     </div>
                     <Image src={WhiteGuide} alt="white guide" className="white-guide" />
                 </div>
@@ -136,12 +132,7 @@ export default function Home() {
                     </Flex>
                     <div>
                         <p className="u-logix--cta">Get notified when we launch and get a <span>early access</span></p>
-                        <div className="search-bar book-demo">
-                            <Space.Compact style={{ width: '100%' }}>
-                                <Input type='email' placeholder="Your work email address" />
-                                <Button type="primary" className="btn-main">Join the Waitlist <StarWhite /></Button>
-                            </Space.Compact>
-                        </div>
+                        <BookDemo data={true} />
                     </div>
                     <Image src={WhiteGuide} alt="white guide" className="white-guide" />
                 </div>

@@ -5,6 +5,7 @@ import Image from "next/image";
 import type { CollapseProps } from 'antd';
 import SmallCard from '@/app/components/SmallCard';
 import StateCard from '@/app/components/StateCard';
+import Link from 'next/link';
 // IMAGES
 import ValueImg from "../../../../public/images/key-feature-home.webp"
 import ValueImg2 from "../../../../public/images/key-feature-home-2.webp"
@@ -103,9 +104,7 @@ const page = () => {
                             <h2>Transforming Spaces, One Delivery at a Time</h2>
                             <p className="title-desc">The home and decor industry in India is experiencing a remarkable surge, fueled by changing lifestyle preferences, urbanization, and a growing emphasis on interior design.</p>
                         </div>
-                        <Button type="primary" className='btn-main'>
-                            Get Started
-                        </Button>
+                        <Link href="/contact-us" className='ant-btn ant-btn-primary btn-main'><span>Get Started</span></Link>
                     </div>
                 </div>
             </section>

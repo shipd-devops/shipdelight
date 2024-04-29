@@ -64,12 +64,12 @@ export default function Home() {
                 <div className="container small">
                     <h1 className="small">Blogs & Articles</h1>
                     <p className="title-desc">Discover the Path to Logistics Excellence: Gain Valuable Insights, Strategies, and Inspiration from Industry Leaders.</p>
-                    <div className="search-bar email">
+                    {/* <div className="search-bar email">
                         <Space.Compact style={{ width: '100%' }}>
                             <Input placeholder="Enter email to subscribe" prefix={<MailIcon />} />
                             <Button type="primary" className="btn-main">Subscribe Now </Button>
                         </Space.Compact>
-                    </div>
+                    </div> */}
                 </div>
             </section>
             <section className="common-section normal-section">

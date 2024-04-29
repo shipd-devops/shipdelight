@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button, Form, Input, Flex, message } from 'antd';
@@ -44,6 +44,22 @@ export default function Home() {
           type: 'success',
           content: 'Form sent sucessfully',
         });
+    };
+    const [mailLocal, setMailLocal] = useState<any>('');
+    const [nameLocal, setNameLocal] = useState<any>('');
+    const [forceRender, setForceRender] = useState(false);
+    useEffect(() => {
+        const item = localStorage.getItem('number');
+        const item2 = localStorage.getItem('name');
+        setMailLocal(item);
+        setNameLocal(item2)
+    }, []);
+    useEffect(() => {
+        setForceRender(prevState => !prevState);
+    }, [mailLocal]);
+    const initialValues = {
+        number: mailLocal || '',
+        name: nameLocal || ''
     };
     type FieldType = {
         name?: string;
@@ -148,6 +164,8 @@ export default function Home() {
                                 onFinish={onFinish}
                                 onFinishFailed={onFinishFailed}
                                 autoComplete="off"
+                                initialValues={initialValues}
+                                key={forceRender ? 'forceRender' : 'normal'}
                             >
                                 <Form.Item<FieldType>
                                     name="name"
@@ -175,7 +193,7 @@ export default function Home() {
                                     rules={[{ required: true, message: 'Please enter your phone number!' }]}
                                     hasFeedback
                                 >
-                                    <Input type='number' placeholder='Phone number' />
+                                    <Input type='number' placeholder='Phone number' minLength={10} />
                                 </Form.Item>
                                 <Form.Item<FieldType>
                                     name="query"
