@@ -5005,4 +5005,15 @@ button.back-to-top.show:active {
   .inte--desktop {
     display: none;
   }
+  .search-bar .ant-input-outlined, .search-bar .ant-input-outlined:hover, .search-bar .ant-input-outlined:focus {
+    height: 40px;
+  }
+  .search-bar button.ant-btn span {
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .search-bar input::placeholder {
+    font-size: 13px !important;
+    font-weight: 400 !important;
+  }
 }

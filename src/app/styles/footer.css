@@ -144,7 +144,7 @@ footer .adress svg {
     margin-bottom: 20px;
 }
 .footer--bottom .footer--container:first-child {
-    padding-bottom: 40px;
+    padding-bottom: 30px;
     border-bottom: 1px solid #303030;
     margin-bottom: 40px;
     justify-content: space-between;
@@ -226,6 +226,9 @@ footer .adress svg {
     font-size: 15px;
     font-weight: 400;
     line-height: 26px;
+}
+.footerCollapse {
+    display: none;
 }
 @media screen and (max-width: 1023px) {
     .footer--top {
@@ -312,8 +315,8 @@ footer .adress svg {
         padding: 40px 0 0px 0;
     }
     .footer--bottom .footer--container:first-child {
-        padding-bottom: 30px;
-        margin-bottom: 20px;
+        padding-bottom: 25px;
+        margin-bottom: 25px;
     }
     .footer--bottom .footer--container {
         flex-direction: column-reverse;
@@ -331,5 +334,110 @@ footer .adress svg {
     }
     .footer--bottom .footer--container:last-child {
         gap: 20px;
+    }
+    /*  */
+    footer .ant-collapse>.ant-collapse-item {
+        border: none !important;
+    }
+    footer .ant-collapse {
+        border: none !important;
+        background-color: transparent;
+    }
+    footer .ant-collapse .ant-collapse-content {
+        border: none !important;
+    }
+    footer .ant-collapse>.ant-collapse-item >.ant-collapse-footer {
+        padding: 0;
+        flex-direction: row-reverse;
+    }
+    footer .ant-collapse-item:not(:last-child) {
+        margin-bottom: 20px;
+    }
+    .footer-dropdown.second>div {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .footer-dropdown--bottom>div:last-child {
+        padding-left: 0;
+        border-left: 0;
+    }
+    footer .ant-collapse .ant-collapse-content>.ant-collapse-content-box {
+        padding: 0;
+        background-color: #1E1E1E;
+    }
+    .footer-dropdown p.title-big {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .footer-dropdown p.title-main {
+        font-size: 14px;
+    }
+    footer button.ant-btn.ant-btn-default {
+        margin-top: auto;
+    }
+    footer .ant-collapse>.ant-collapse-item >.ant-collapse-footer .ant-collapse-arrow {
+        scale: 1.2;
+    }
+    .footer--container.second {
+        display: none;
+    }
+    .footer-dropdown.fourth .footer-dropdown--item:last-child>div {
+        padding-left: 0;
+        max-width: 100%;
+        width: 100%;
+    }
+    .footerCollapse {
+        display: block;
+    }
+    .footerCollapse .ant-collapse-header-text {
+        color: white;
+        font-weight: 500;
+    }
+    .footerCollapse.ant-collapse>.ant-collapse-item {
+        margin-bottom: 0;
+    }
+    .footerCollapse .ant-collapse-item-active  .ant-collapse-expand-icon svg{
+        transform: rotate(180deg);
+    }
+    .footerCollapse .ant-collapse-expand-icon {
+        padding-top: 5px;
+    }
+    .footerCollapse .header-dropdown--link {
+        padding: 6px 10px;
+    }
+    .footerCollapse .header-dropdown--link p {
+        color: rgba(255, 255, 255, 0.80);
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 20px;
+    }
+    .footer--links {
+        display: none;
+    }
+    .footerCollapse .ant-collapse-item {
+        width: 100%;
+    }
+    .footerCollapse.ant-collapse>.ant-collapse-item >.ant-collapse-header {
+        padding-left: 0;
+        width: 100%;
+    }
+    footer .ant-collapse {
+        width: 100%;
+    }
+    .footerCollapse.ant-collapse>.ant-collapse-item:first-child >.ant-collapse-header {
+        padding-top: 0;
+    }
+    .footer--container:last-child ul {
+        gap: 8px;
+        width: 100%;
+    }
+    .footer--container:last-child ul li {
+        flex: auto;
+    }
+    .footer--container:last-child ul li a {
+        width: 100%;
+    }
+    footer .header-dropdown--link:first-child {
+        padding-top: 0;
     }
 }

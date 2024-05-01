@@ -19,7 +19,7 @@ import WorkFlowCard from '@/app/components/WorkFlowCard';
 import BenefitCard from '@/app/components/BenefitCard';
 import StateCard from '@/app/components/StateCard';
 import BookDemo from '@/app/components/BookDemo';
-import { reverse } from 'dns';
+import { reverse } from 'dns'; 
 
 const page = () => {
     const stats = [
@@ -119,6 +119,7 @@ const page = () => {
         },
     ];
     return (
+        <>
         <main>
             <section className="solution gradient-section">
                 <div className="container side">
@@ -205,6 +206,7 @@ const page = () => {
                 </div>
             </section> */}
         </main>
+        </>
     )
 }
 

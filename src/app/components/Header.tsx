@@ -13,7 +13,8 @@ import ChevrotDown from '../../../public/images/chevrot-down.svg'
 import IlogixIcon from '../../../public/images/i-logix.svg'
 import ElogixIcon from '../../../public/images/e-logix.svg'
 import UlogixIcon from '../../../public/images/u-logix.svg'
-import BottomIcon from '../../../public/images/bottom-icon.svg'
+import Chevron from '../../../public/images/chevron.svg'
+import BckIcon from '../../../public/images/back-big.svg'
 import PostPurchaseIcon from '../../../public/images/post-purchase-icon.svg'
 import FullfillmentIcon from '../../../public/images/fullfillment.svg'
 import ShippersIcon from '../../../public/images/shippers.svg'
@@ -583,13 +584,32 @@ const Header: FC = () => {
     }
     const isElogix = pathname.includes("elogix");
     const isUlogix = pathname.includes("ulogix");
+    const [headerStep, setHeaderStep] = useState(0);
     return (
         <>
             <header className={`sticky ${openDrop >= 0 ? 'open-drop' : ''}`}>
                 <div className="header--container">
-                    <Link href={'/'} className='logo-head'>
-                        <LogoImage />
-                    </Link>
+                    { headerStep === 1 ?
+                        <Flex align='center' gap={14}>
+                            <BckIcon onClick={() => setHeaderStep(0)} />
+                            <p className='headerMobileText'>Platforms</p>
+                        </Flex> : headerStep === 2 ?
+                        <Flex align='center' gap={14}>
+                            <BckIcon onClick={() => setHeaderStep(0)} />
+                            <p className='headerMobileText'>Solutions</p>
+                        </Flex> : headerStep === 3 ?
+                        <Flex align='center' gap={14}>
+                            <BckIcon onClick={() => setHeaderStep(0)} />
+                            <p className='headerMobileText'>Industry</p>
+                        </Flex> : headerStep === 4 ?
+                        <Flex align='center' gap={14}>
+                            <BckIcon onClick={() => setHeaderStep(0)} />
+                            <p className='headerMobileText'>Company</p>
+                        </Flex> : 
+                        <Link href={'/'} className='logo-head'>
+                            <LogoImage />
+                        </Link>
+                    }
                     <div className="header--links">
                         <Flex gap={8} align='center' className="header--link" onClick={() => { setOpenDrop(openDrop === 0 ? -1 : 0) }}>
                             <p>Platforms</p>
@@ -622,22 +642,173 @@ const Header: FC = () => {
                             Book a Demo
                         </Button>
                     </div>
-                    <div onClick={() => setBurgerOpen(!burgerOpen)} className={`burger ${burgerOpen ? 'is-active' : ''}`} id="burger">
-                        <span className="burger-line"></span>
-                        <span className="burger-line"></span>
-                        <span className="burger-line"></span>
-                    </div>
-                    <div className={`nav-list-mobile ${burgerOpen ? 'open' : ''}`}>
-                        <Collapse items={items} defaultActiveKey={['1']} onChange={onChange} />
-                        <Link href={'/pricing'} className="header--link">
-                            Pricing
-                        </Link>
-                        <Link href={'/blogs'} className="header--link">
-                            Resources
-                        </Link>
-                        <Button type='primary' className='mt-auto' onClick={()=>{router.push('/book-a-demo')}}>
+                    {!burgerOpen ? 
+                        <Button type='primary' className='head-btn' onClick={()=>{router.push('/book-a-demo')}}>
                             Book a Demo
-                        </Button>
+                        </Button> : ''
+                    }
+                    {
+                        headerStep === 0 ? 
+                        <div onClick={() => {setBurgerOpen(!burgerOpen); setHeaderStep(0);}} className={`burger ${burgerOpen ? 'is-active' : ''}`} id="burger">
+                            <span className="burger-line"></span>
+                            <span className="burger-line"></span>
+                            <span className="burger-line"></span>
+                        </div> : ''
+                    }
+                    <div className={`nav-list-mobile ${burgerOpen ? 'open' : ''}`}>
+                        {/* <Collapse items={items} defaultActiveKey={['1']} onChange={onChange} /> */}
+                        {
+                            headerStep === 0 ? 
+                            <div className='nav-list-mobile--inner'>
+                                <div className="nav-list-mobile--item" onClick={()=>{setHeaderStep(1)}}>
+                                    <Flex justify='space-between' align='center'>
+                                        <p className='header-custom-ink'>Platforms</p>
+                                        <Chevron />
+                                    </Flex>
+                                </div>
+                                <div className="nav-list-mobile--item" onClick={()=>{setHeaderStep(2)}}>
+                                    <Flex justify='space-between' align='center'>
+                                        <p className='header-custom-ink'>Solutions</p>
+                                        <Chevron />
+                                    </Flex>
+                                </div>
+                                <div className="nav-list-mobile--item" onClick={()=>{setHeaderStep(3)}}>
+                                    <Flex justify='space-between' align='center'>
+                                        <p className='header-custom-ink'>Industry</p>
+                                        <Chevron />
+                                    </Flex>
+                                </div>
+                                <div className="nav-list-mobile--item" onClick={()=>{setHeaderStep(4)}}>
+                                    <Flex justify='space-between' align='center'>
+                                        <p className='header-custom-ink'>Company</p>
+                                        <Chevron />
+                                    </Flex>
+                                </div>
+                                <div className="nav-list-mobile--item">
+                                    <Link href={'/pricing'} className="header--link">
+                                        Pricing
+                                    </Link>
+                                </div>
+                                <div className="nav-list-mobile--item">
+                                    <Link href={'/blogs'} className="header--link">
+                                        Resources
+                                    </Link>
+                                </div>
+                            </div> :
+                            headerStep === 1 ?
+                            <div className='nav-list-mobile--inner'>
+                                <div className='header-dropdown'>
+                                    {platfromLinks.map((item, index)=>(
+                                        <div className="header-dropdown--item" key={index}>
+                                            <Flex gap={8}>
+                                                <div className="svg-div">
+                                                    {item.icon}
+                                                </div>
+                                                <div>
+                                                    <p className='title-big'>{item.title}</p>
+                                                    {item.links.map((link, indexInner)=>(
+                                                        <Link href={link.link} className='header-dropdown--link' key={indexInner}>
+                                                            <div>
+                                                                <Flex align='center' gap={12}>
+                                                                    <p className='title-main'>{link.title}</p>
+                                                                    {link.tag ? <span className='popular'>{link.tag}</span> : ''}
+                                                                </Flex>
+                                                                {link.text ? <p>{link.text}</p> : ''}
+                                                            </div>
+                                                        </Link>
+                                                    ))}
+                                                </div>
+                                            </Flex>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div> : headerStep === 2 ?
+                            <div className='nav-list-mobile--inner'>
+                                <div className='header-dropdown'>
+                                    {solutionsLinks.map((item, index)=>(
+                                        <div className="header-dropdown--item" key={index}>
+                                            <Flex gap={8}>
+                                                <div className="svg-div">
+                                                    {item.icon}
+                                                </div>
+                                                <div>
+                                                    <p className='title-big'>{item.title}</p>
+                                                    {item.links.map((link, indexInner)=>(
+                                                        <Link href={link.link} className='header-dropdown--link' key={indexInner}>
+                                                            <div>
+                                                                <Flex align='center' gap={12}>
+                                                                    <p className='title-main'>{link.title}</p>
+                                                                </Flex>
+                                                            </div>
+                                                        </Link>
+                                                    ))}
+                                                </div>
+                                            </Flex>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div> : headerStep === 4 ?
+                            <div className='nav-list-mobile--inner'>
+                                <div className='header-dropdown'>
+                                    <div className="header-dropdown--item">
+                                        <Flex gap={8}>
+                                            <div className="svg-div">
+                                                {comapaniesLink.icon}
+                                            </div>
+                                            <div>
+                                                <p className='title-big'>{comapaniesLink.title}</p>
+                                                {comapaniesLink.links.map((link, indexInner)=>(
+                                                    <Link href={link.link} className='header-dropdown--link' key={indexInner}>
+                                                        <div>
+                                                            <Flex align='center' gap={12}>
+                                                                <p className='title-main'>{link.title}</p>
+                                                            </Flex>
+                                                        </div>
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </Flex>
+                                    </div>
+                                </div>
+                            </div> : headerStep === 3 ?
+                            <div className='nav-list-mobile--inner'>
+                                <div className='header-dropdown'>
+                                    <div className="header-dropdown--item">
+                                        <Flex gap={8}>
+                                            <div className="svg-div">
+                                                {industriesLink.icon}
+                                            </div>
+                                            <div>
+                                                <p className='title-big'>{industriesLink.title}</p>
+                                                {industriesLink.links.map((link, indexInner)=>(
+                                                    <Link href={link.link} className='header-dropdown--link' key={indexInner}>
+                                                        <div>
+                                                            <Flex align='center' gap={12}>
+                                                                <p className='title-main'>{link.title}</p>
+                                                            </Flex>
+                                                        </div>
+                                                    </Link>
+                                                ))}
+                                                {industriesLink.links2.map((link, indexInner)=>(
+                                                    <Link href={link.link} className='header-dropdown--link' key={indexInner}>
+                                                        <div>
+                                                            <Flex align='center' gap={12}>
+                                                                <p className='title-main'>{link.title}</p>
+                                                            </Flex>
+                                                        </div>
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </Flex>
+                                    </div>
+                                </div>
+                            </div>
+                            : ''
+                        }
+                        {burgerOpen && headerStep === 0 ?
+                        <Button type='primary' className='btn-main' style={{margin: '20px 20px 0'}} onClick={()=>{router.push('/book-a-demo')}}>
+                            Book a Demo
+                        </Button> : '' }
                     </div>
                 </div>
                 {openDrop === 0 ?
@@ -907,5 +1078,4 @@ const Header: FC = () => {
         </>
     )
 }
-
 export default Header
