@@ -40,9 +40,11 @@ const Header: FC = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, [prevScrollPos]);
+    const [headerStep, setHeaderStep] = useState(0);
     useEffect(() => {
         setOpenDrop(-1)
         setBurgerOpen(false);
+        setHeaderStep(0)
     }, [pathname]);
     const [burgerOpen, setBurgerOpen] = useState(false);
     const onChange = (key: string | string[]) => {
@@ -54,338 +56,6 @@ const Header: FC = () => {
           behavior: 'smooth',
         });
       };
-    const items: CollapseProps['items'] = [
-        {
-          key: '1',
-          label: 'Platforms',
-          children: <div className='header-dropdown'>
-          <div className="header-dropdown--item">
-              <Link href={'/'}>
-                  <div className="svg-div">
-                      <IlogixIcon />
-                  </div>
-                  <p className='title-big'>i Logix </p>
-                  <p>A Tailored Logistic Solution Engineered to Optimize Efficiency and Propel Consumer Brands Forward.</p>
-              </Link>
-              <div>
-                  <Link href={'/platforms/ilogix/d2c-delight'} className='header-dropdown--link'>
-                      <div>
-                          <Flex align='center' gap={12}>
-                              <p className='title-main'>D2C Delight</p>
-                              <span className='popular'>Most Popular</span>
-                          </Flex>
-                          <p>Seamless Logistics Management for Your Direct-to-Consumer Endeavors.</p>
-                      </div>
-                  </Link>
-                  <Link href={'/platforms/ilogix/retail-delight'} className='header-dropdown--link'>
-                      <div>
-                          <Flex align='center' gap={12}>
-                              <p className='title-main'>Retail Delight</p>
-                          </Flex>
-                          <p>Seamless Logistics Management for Your Direct-to-Consumer Endeavors.</p>
-                      </div>
-                  </Link>
-              </div>
-          </div>
-          <div className="header-dropdown--item">
-              <div>
-                  <div className="svg-div">
-                      <ElogixIcon />
-                  </div>
-                  <p className='title-big'>e Logix </p>
-                  <p>Integrated Solution to manage end-to-end Last Mile Deliveries for e-commerce Movement.</p>
-              </div>
-              
-              <div>
-                  <Link href={'/platforms/elogix/erp-delight'} className='header-dropdown--link'>
-                      <div>
-                          <Flex align='center' gap={12}>
-                              <p className='title-main'>ERP Delight</p>
-                              <span className='popular'>Most Popular</span>
-                          </Flex>
-                          <p>ERP for Transporters to align on-ground operations at their Hubs and Branches.</p>
-                      </div>
-                  </Link>
-                  <Link href={'/platforms/elogix/biker-delight'} className='header-dropdown--link'>
-                      <div>
-                          <Flex align='center' gap={12}>
-                              <p className='title-main'>Biker Delight</p>
-                          </Flex>
-                          <p>Simplified application for Bikers to coordinate and manage their Deliveries.</p>
-                      </div>
-                  </Link>
-              </div>
-          </div>
-          <div className="header-dropdown--item">
-              <Link href={'/platforms/ulogix'}>
-                  <div className="svg-div">
-                      <UlogixIcon />
-                  </div>
-                  <p className='title-big'>u Logix </p>
-                  <p>Comprehensive Solution for Integrated B2B and B2C Logistics Movements.</p>
-              </Link>
-              <div>
-                  <Link href={'/platforms/ulogix'} className='header-dropdown--link'>
-                      <div>
-                          <Flex align='center' gap={12}>
-                              <p className='title-main'>B2B2C Delight</p>
-                              <span className='popular'>Coming Soon</span>
-                          </Flex>
-                          <p>Integrated solution to bridge the gap between B2B & B2C logistics.</p>
-                      </div>
-                  </Link>
-                  <Link href={'/platforms/ulogix'} className='header-dropdown--link'>
-                      <div>
-                          <Flex align='center' gap={12}>
-                              <p className='title-main'>Distribution Delight</p>
-                              <span className='popular'>Coming Soon</span>
-                          </Flex>
-                          <p>Complete control over transporters for optimized logistics efficiency.</p>
-                      </div>
-                  </Link>
-              </div>
-          </div>
-      </div>,
-        },
-        {
-          key: '2',
-          label: 'Solutions',
-          children: <div className='header-dropdown second'>
-          <div>
-              <div className="header-dropdown--item">
-                  <div>
-                      <div className="svg-div">
-                          <UlogixIcon />
-                      </div>
-                      <p className='title-big'>Shipping Solutions </p>
-                      <p>Unlock Effortless Shipping Management with ShipDelight - Your Partner in Logistics.</p>
-                  </div>
-                  <div>
-                      <Link href={'/solution/b2b-logistics'} className='header-dropdown--link'>
-                          <div>
-                              <p className='title-main'>B2B Logistics</p>
-                          </div>
-                      </Link>
-                      <Link href={'/solution/ecommerce-shipping'} className='header-dropdown--link'>
-                          <div>
-                              <p className='title-main'>E- Commerce Shipping</p>
-                          </div>
-                      </Link>
-                  </div>
-              </div>
-              <div className="header-dropdown--item">
-                  <div>
-                      <div className="svg-div">
-                          <PostPurchaseIcon />
-                      </div>
-                      <p className='title-big'>Post Purchase</p>
-                      <p>Elevate Customer Experience Beyond Purchase with ShipDelight's Solutions.</p>
-                  </div>
-                  <div>
-                      <Link href={'/solution/ndr'} className='header-dropdown--link'>
-                          <div>
-                              <p className='title-main'>NDRs</p>
-                          </div>
-                      </Link>
-                      <Link href={'/solution/returns'} className='header-dropdown--link'>
-                          <div>
-                              <p className='title-main'>Returns</p>
-                          </div>
-                      </Link>
-                      <Link href={'/solution/exchanges'} className='header-dropdown--link'>
-                          <div>
-                              <p className='title-main'>Exchange</p>
-                          </div>
-                      </Link>
-                      <Link href={'/solution/refunds'} className='header-dropdown--link'>
-                          <div>
-                              <p className='title-main'>Refunds</p>
-                          </div>
-                      </Link>
-                      <Link href={'/solution/communications'} className='header-dropdown--link'>
-                          <div>
-                              <p className='title-main'>Communication</p>
-                          </div>
-                      </Link>
-                  </div>
-              </div>
-              <div className="header-dropdown--item">
-                  <div>
-                      <div className="svg-div">
-                          <FullfillmentIcon />
-                      </div>
-                      <p className='title-big'>Fulfilment Services </p>
-                      <p>Optimize Your Fulfillment Operations with ShipDelight's Comprehensive Solutions.</p>
-                  </div>
-                  <div>
-                      <Link href={'/solution/omni-channel'} className='header-dropdown--link'>
-                          <div>
-                              <p className='title-main'>Omni Channel</p>
-                          </div>
-                      </Link>
-                      <Link href={'/solution/express-delivery'} className='header-dropdown--link'>
-                          <div>
-                              <p className='title-main'>Express Delivery</p>
-                          </div>
-                      </Link>
-                      <Link href={'/solution/cash-on-dilevry'} className='header-dropdown--link'>
-                          <div>
-                              <p className='title-main'>Cash on Delivery</p>
-                          </div>
-                      </Link>
-                      <Link href={'/solution/warehouse'} className='header-dropdown--link'>
-                          <div>
-                              <p className='title-main'>Warehousing & Inventory</p>
-                          </div>
-                      </Link>
-                  </div>
-              </div>
-              <div className="header-dropdown--item">
-                  <div>
-                      <div className="svg-div">
-                          <ShippersIcon />
-                      </div>
-                      <p className='title-big'>Shippers </p>
-                      <p>Empower Your Shipping Process with Customized Solutions for Shippers.</p>
-                  </div>
-                  <div>
-                      <Link href={'/solution/franchises'} className='header-dropdown--link'>
-                          <div>
-                              <p className='title-main'>Franchises</p>
-                          </div>
-                      </Link>
-                      <Link href={'/solution/biker-app'} className='header-dropdown--link'>
-                          <div>
-                              <p className='title-main'>Biker Application</p>
-                          </div>
-                      </Link>
-                      <Link href={'/solution/logistics-erp'} className='header-dropdown--link'>
-                          <div>
-                              <p className='title-main'>Logistics ERP</p>
-                          </div>
-                      </Link>
-                  </div>
-              </div>
-          </div>
-          {/* <div className='header-dropdown--bottom'>
-              <div>
-                  <BottomIcon />
-                  <p className='title-big'>Integration</p>
-              </div>
-              <div>
-                  <Link href={'/'} className='header-dropdown--link'>
-                      <div>
-                          <p className='title-main'>Carts</p>
-                      </div>
-                  </Link>
-                  <Link href={'/'} className='header-dropdown--link'>
-                      <div>
-                          <p className='title-main'>Marketplaces</p>
-                      </div>
-                  </Link>
-                  <Link href={'/'} className='header-dropdown--link'>
-                      <div>
-                          <p className='title-main'>Technology</p>
-                      </div>
-                  </Link>
-                  <Link href={'/'} className='header-dropdown--link'>
-                      <div>
-                          <p className='title-main'>Partners</p>
-                      </div>
-                  </Link>
-                  <Link href={'/'} className='header-dropdown--link'>
-                      <div>
-                          <p className='title-main'>Payment Gateway</p>
-                      </div>
-                  </Link>
-              </div>
-          </div> */}
-      </div>,
-        },
-        {
-          key: '3',
-          label: 'Industry',
-          children: <div className='header-dropdown third'>
-          <div className="header-dropdown--item">
-              <div>
-                  <div className="svg-div">
-                      <IndustryIcon />
-                  </div>
-                  <p className='title-big'>Industries </p>
-                  <p>ShipDelight serves a wide range of industries with custom solutions unique to their requirement.</p>
-              </div>
-          </div>
-          <div className="header-dropdown--item">
-              <div>
-                  <Link href={'/industry/fashion'} className='header-dropdown--link'>
-                      <div>
-                          <p className='title-main'>Fashion</p>
-                      </div>
-                  </Link>
-                  <Link href={'/industry/electronics'} className='header-dropdown--link'>
-                      <div>
-                          <p className='title-main'>Electronics</p>
-                      </div>
-                  </Link>
-                  <Link href={'/industry/health-care'} className='header-dropdown--link'>
-                      <div>
-                          <p className='title-main'>Health & Pharma</p>
-                      </div>
-                  </Link>
-                  <Link href={'/industry/home-and-decor'} className='header-dropdown--link'>
-                      <div>
-                          <p className='title-main'>Home & Décor</p>
-                      </div>
-                  </Link>
-              </div>
-              <div>
-                  <Link href={'/industry/food-and-beverage'} className='header-dropdown--link'>
-                      <div>
-                          <p className='title-main'>Foods & Beverages</p>
-                      </div>
-                  </Link>
-                  <Link href={'/industry/sports'} className='header-dropdown--link'>
-                      <div>
-                          <p className='title-main'>Sports & Utilities</p>
-                      </div>
-                  </Link>
-              </div>
-          </div>
-      </div>,
-        },
-        {
-            key: '4',
-            label: 'Company',
-            children: <div className='header-dropdown fourth'>
-            <div className="header-dropdown--item">
-                <div>
-                    <div className="svg-div">
-                        <CompanyIcon />
-                    </div>
-                    <p className='title-big'>Company</p>
-                    <p>Empowering Businesses with  Logistics Solutions that overcome Tomorrow's Challenges & drive growth.</p>
-                </div>
-                <div>
-                    <Link href={'/about'} className='header-dropdown--link'>
-                        <div>
-                            <p className='title-main'>About</p>
-                        </div>
-                    </Link>
-                    <Link href={'/career'} className='header-dropdown--link'>
-                        <div>
-                            <p className='title-main'>Career</p>
-                        </div>
-                    </Link>
-                    <Link href={'/contact-us'} className='header-dropdown--link'>
-                        <div>
-                            <p className='title-main'>Contact Us</p>
-                        </div>
-                    </Link>
-                </div>
-            </div>
-        </div>
-        }
-    ];
     const platfromLinks = [
         {
             title: 'iLogix',
@@ -570,7 +240,7 @@ const Header: FC = () => {
         links:[
             {
                 link: '/about',
-                title: 'About'
+                title: 'About Us'
             },
             {
                 link: '/career',
@@ -584,7 +254,13 @@ const Header: FC = () => {
     }
     const isElogix = pathname.includes("elogix");
     const isUlogix = pathname.includes("ulogix");
-    const [headerStep, setHeaderStep] = useState(0);
+    const platFromPages = pathname.includes("platforms");
+    const solutionPages = pathname.includes("solution");
+    const industryPages = pathname.includes("industry");
+    const aboutPage = pathname.includes("about");
+    const careerPage = pathname.includes("career");
+    const contactPages = pathname.includes("contact-us");
+
     return (
         <>
             <header className={`sticky ${openDrop >= 0 ? 'open-drop' : ''}`}>
@@ -606,31 +282,33 @@ const Header: FC = () => {
                             <BckIcon onClick={() => setHeaderStep(0)} />
                             <p className='headerMobileText'>Company</p>
                         </Flex> : 
-                        <Link href={'/'} className='logo-head'>
-                            <LogoImage />
+                        <Link href={'/'} className={prevScrollPos > 400 && isPlatform ? 'logo-head logix' : 'logo-head'}>
+                            {
+                                prevScrollPos > 400 && isPlatform ? isElogix ? <Elogix /> : <Ilogix /> : <LogoImage />
+                            }
                         </Link>
                     }
                     <div className="header--links">
-                        <Flex gap={8} align='center' className="header--link" onClick={() => { setOpenDrop(openDrop === 0 ? -1 : 0) }}>
+                        <Flex gap={8} align='center' className={openDrop === 0 || platFromPages ? "header--link active" : "header--link"} onClick={() => { setOpenDrop(openDrop === 0 ? -1 : 0) }}>
                             <p>Platforms</p>
                             <ChevrotDown />
                         </Flex>
-                        <Flex gap={8} align='center' className="header--link" onClick={() => { setOpenDrop(openDrop === 1 ? -1 : 1) }}>
+                        <Flex gap={8} align='center' className={openDrop === 1 || solutionPages ? "header--link active" : "header--link"} onClick={() => { setOpenDrop(openDrop === 1 ? -1 : 1) }}>
                             <p>Solutions</p>
                             <ChevrotDown />
                         </Flex>
-                        <Flex gap={8} align='center' className="header--link" onClick={() => { setOpenDrop(openDrop === 2 ? -1 : 2) }}>
+                        <Flex gap={8} align='center' className={openDrop === 2 || industryPages ? "header--link active" : "header--link"} onClick={() => { setOpenDrop(openDrop === 2 ? -1 : 2) }}>
                             <p>Industry</p>
                             <ChevrotDown />
                         </Flex>
-                        <Flex gap={8} align='center' className="header--link" onClick={() => { setOpenDrop(openDrop === 3 ? -1 : 3) }}>
+                        <Flex gap={8} align='center' className={openDrop === 3 || aboutPage || careerPage || contactPages ? "header--link active" : "header--link"} onClick={() => { setOpenDrop(openDrop === 3 ? -1 : 3) }}>
                             <p>Company</p>
                             <ChevrotDown />
                         </Flex>
-                        <Link href={'/pricing'} className="header--link">
+                        <Link href={'/pricing'} className={pathname.includes("pricing") ? "header--link active" : "header--link"}>
                             <p>Pricing</p>
                         </Link>
-                        <Link href={'/blogs'} className="header--link">
+                        <Link href={'/blogs'} className={pathname.includes("blogs") ? "header--link active" : "header--link"}>
                             <p>Resources</p>
                         </Link>
                     </div>
@@ -728,7 +406,7 @@ const Header: FC = () => {
                                     {solutionsLinks.map((item, index)=>(
                                         <div className="header-dropdown--item" key={index}>
                                             <Flex gap={8}>
-                                                <div className="svg-div">
+                                                <div className="svg-div" style={{marginTop: index > 0 ? '-8px' : ''}}>
                                                     {item.icon}
                                                 </div>
                                                 <div>

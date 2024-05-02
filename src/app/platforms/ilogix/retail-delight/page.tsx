@@ -14,6 +14,7 @@ import { useRouter } from "next/navigation";
 // IMAGES
 import Ilogix from '../../../../../public/images/ilogix.svg'
 import Platform from '../../../../../public/images/main-platform-retail.webp'
+import PlatformM from '../../../../../public/images/main-platform-retail--mobile.webp'
 import PlatformFooter from '../../../../../public/images/main-platform--footer.webp'
 import WhiteGuide from '../../../../../public/images/white-guide.webp'
 import ThreeDotsSvg from '../../../../../public/images/three-dots.svg'
@@ -184,6 +185,7 @@ export default function Home() {
                     <Image src={WhiteGuide} alt="white guide" className="white-guide" />
                     <div className="platform-banner--image">
                         <Image src={Platform} alt="Platform" />
+                        <Image src={PlatformM} alt="Platform" />
                     </div>
                 </div>
             </section>
@@ -211,8 +213,6 @@ export default function Home() {
                         </div>
                         <div className="info-product--image">
                             <Image src={WhatLogix} alt="Platform" className="platform" />
-                            <Image src={WhatLogixImage} alt="guides-img" />
-                            <Image src={WhatLogixImage2} alt="guides-img" />
                         </div>
                     </div>
                 </div>

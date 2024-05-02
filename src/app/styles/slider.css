@@ -254,4 +254,7 @@
     .swiperslide--slide p {
         margin-bottom: 12px;
     }
+    .testimonial--content {
+        padding: 0 0 1px 1px;
+    }
 }

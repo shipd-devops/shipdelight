@@ -960,6 +960,9 @@ img {
   margin: 0 auto -4px;
   max-width: 100%;
 }
+.platform-banner--image img:last-child:not(:only-child) {
+  display: none;
+}
 .platform-banner--image::after {
   position: absolute;
   left: 50%;
@@ -3896,7 +3899,7 @@ button.back-to-top.show:active {
     width: 100%;
   }
   main {
-    margin-top: 78px !important;
+    margin-top: 86px !important;
   }
   .info-product--container.small > div:last-child {
     max-width: 100%;
@@ -3926,6 +3929,16 @@ button.back-to-top.show:active {
   }
   .platform-banner--image {
     margin-top: 40px;
+  }
+  .platform-banner--image img:first-child:not(:only-child) {
+    display: none;
+  }
+  .platform-banner--image img:last-child:not(:only-child) {
+    display: inline-block;
+    margin-bottom: -75px;
+  }
+  .gradient-section.platform-banner {
+    overflow: hidden;
   }
   h6 {
     line-height: 16px;
@@ -4014,7 +4027,7 @@ button.back-to-top.show:active {
   }
   .small-card--item {
     width: 100%;
-    padding: 22px 25px 10px;
+    padding: 24px 24px 10px;
     gap: 0px;
   }
   .features-btn {
@@ -4030,10 +4043,10 @@ button.back-to-top.show:active {
     min-width: 100%;
   }
   .common--content--item, .common--content--item:nth-child(even) {
-    gap: 12px;
+    gap: 18px;
   }
   .common--content-list {
-    gap: 50px;
+    gap: 58px;
   }
   .ant-collapse>.ant-collapse-item >.ant-collapse-header {
     align-items: center;
@@ -4431,7 +4444,7 @@ button.back-to-top.show:active {
     width: 100%;
   }
   .info-product--detail-list {
-    gap: 10px;
+    gap: 14px;
   }
   .event-content--list {
     gap: 14px;
@@ -5015,5 +5028,21 @@ button.back-to-top.show:active {
   .search-bar input::placeholder {
     font-size: 13px !important;
     font-weight: 400 !important;
+  }
+  .container {
+    padding: 0 16px;
+  }
+  .normal-section .container, .normal-section .container {
+    padding: 0 28px;
+  }
+  .product-brand.normal-section .container {
+    padding: 0 28px;
+  }
+  .footer--container:last-child ul li::marker {
+    display: none;
+    color: transparent;
+  }
+  .common--content--item-details p {
+    line-height: 1.5;
   }
 }

@@ -14,7 +14,6 @@ import ChevrotDown from '../../../public/images/chevrot-down-fill.svg'
 export default function Home() {
     const router = useRouter();
     const { Option } = Select;
-    const [steps, setSteps] = useState(1);
     const [messageApi, contextHolder] = message.useMessage();
     const errorHnale = () => {
         messageApi.open({
@@ -43,9 +42,11 @@ export default function Home() {
         mail?: string;
         companyName?: string;
         source?: string;
+        services?: any;
     };
     const onFinish = async (values: any) => {
-        console.log(values, 'values')
+        console.log(values.services, 'values')
+        // console.log(values, 'values')
         // Define the API endpoint
         const apiUrl = 'https://api-in21.leadsquared.com/v2/LeadManagement.svc/Lead.Capture?accessKey=u$rbfb42d135952938f62e7764d1d33ee22&secretKey=00c332128197e768fca341da764053530842f760';
         const formData = [
@@ -70,6 +71,10 @@ export default function Home() {
                 "Value": values.source
             },
             {
+                "Attribute": "mx_SelectedServices",
+                "Value": JSON.stringify(values.services)
+            },
+            {
                 "Attribute": "Source",
                 "Value": "Booking A Demo"
             }
@@ -87,7 +92,7 @@ export default function Home() {
               throw new Error('Network response was not ok');
             }
             const responseData = await response.json();
-            setSteps(2)
+            router.push('thankyou')
             console.log('Form data sent successfully:', responseData);
           } catch (error) {
             console.error('Error sending form data:', error);
@@ -103,7 +108,7 @@ export default function Home() {
             <section className="normal-section pricing-section">
                 <div className="container">
                     <div className="pricing--content">
-                        {steps === 1 ? 
+                        {
                             <div className="pricing-steps--content second">
                                 <h1 className="small">Help us respond quickly by providing basic info.</h1>
                                 <div className="contact-div full">
@@ -143,7 +148,7 @@ export default function Home() {
                                         >
                                             <Input type='number' placeholder='Phone number' minLength={10} />
                                         </Form.Item>
-                                        <Form.Item<FieldType> name="source" rules={[{ required: true, message: 'Please enter source!' }]}>
+                                        <Form.Item<FieldType> name="source" rules={[{ required: true, message: 'Please select source!' }]}>
                                             <Select
                                                 placeholder="How did you find us?"
                                                 // onChange={onGenderChange}
@@ -155,28 +160,39 @@ export default function Home() {
                                                 <Option value="Google">Google</Option>
                                             </Select>
                                         </Form.Item>
+                                        <Form.Item<FieldType> name="services" rules={[{ required: true, message: 'Please select services!' }]}>
+                                            <Select
+                                                placeholder="Select features"
+                                                mode="multiple"
+                                                allowClear
+                                                suffixIcon={<ChevrotDown />}
+                                            >
+                                                <Option value="Non-delivery-Management">Non-delivery Management</Option>
+                                                <Option value="Returns">Returns</Option>
+                                                <Option value="Exchanges">Exchanges</Option>
+                                                <Option value="Refunds">Refunds</Option>
+                                                <Option value="Communications">Communications</Option>
+                                                <Option value="Omni-channel Fulfilment">Omni-channel Fulfilment</Option>
+                                                <Option value="Express Delivery">Express Delivery</Option>
+                                                <Option value="Cash-on-Delivery">Cash-on-Delivery</Option>
+                                                <Option value="Warehouse">Warehouse</Option>
+                                                <Option value="B2B Logistics">B2B Logistics</Option>
+                                                <Option value="E-commerce Logistics">E-commerce Logistics</Option>
+                                            </Select>
+                                        </Form.Item>
                                         <Form.Item>
                                             <Flex justify="space-between" gap={10}>
                                                 <Button onClick={() => router.back()}>
                                                     Back
                                                 </Button>
-                                                <Button type="primary" htmlType="submit" className="btn-main">
+                                                <Button type="primary" htmlType="submit" className="btn-main fserv-button-submit">
                                                     Book A Demo
                                                 </Button>
                                             </Flex>
                                         </Form.Item>
                                     </Form>
                                 </div>
-                            </div> :
-                            <div className="pricing-steps--content">
-                                <h1 className="small">Success! 🎉</h1>
-                                <p>We've received your request for a demo.</p>
-                                <p>Check your email inbox for a link to kickstart your journey with us.</p>
-                                <p>Welcome aboard!"</p>
-                                <Button onClick={()=>{router.push('/')}} type="primary" className="btn-main">
-                                    Go to Home Page
-                                </Button>
-                            </div>
+                            </div> 
                         }
                     </div>
                     <div className="pricing--image">

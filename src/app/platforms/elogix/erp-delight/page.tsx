@@ -15,6 +15,7 @@ import { useRouter } from "next/navigation";
 import Ilogix from '../../../../../public/images/elogix.svg'
 import Platform from '../../../../../public/images/main-platform--footer--elogix.webp'
 import Platform2 from '../../../../../public/images/main-platform--footer--erp.webp'
+import Platform2M from '../../../../../public/images/main-platform--footer--erp--mobile.webp'
 import PlatformFooter from '../../../../../public/images/main-platform--footer--elogix.webp'
 import WhiteGuide from '../../../../../public/images/white-guide.webp'
 import ThreeDotsSvg from '../../../../../public/images/three-dots.svg'
@@ -169,6 +170,7 @@ export default function Home() {
                     <Image src={WhiteGuide} alt="white guide" className="white-guide" />
                     <div className="platform-banner--image">
                         <Image src={Platform2} alt="Platform" />
+                        <Image src={Platform2M} alt="Platform" />
                     </div>
                 </div>
             </section>

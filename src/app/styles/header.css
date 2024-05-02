@@ -354,6 +354,9 @@ header.open-drop.sticky::after {
 .head-btn {
     display: none !important;
 }
+.header-dropdown {
+    border-top: 1px solid var(--Other-stroke, #EBEBE5);
+}
 @media screen and (min-width: 1024px) {
     .burger {
         display: none;
@@ -564,6 +567,12 @@ header.open-drop.sticky::after {
     .logo-head svg {
         scale: .8;
         margin-left: -15px;
+    }
+    .logo-head.logix svg {
+        margin-top: -16px;
+    }
+    .logo-head.logix {
+        height: 34px;
     }
     .burger {
         width: 1.35rem;

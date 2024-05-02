@@ -146,13 +146,13 @@ export default function Home() {
         {
             text: 'They have delivered more than what they have committed. Their sophisticated platform has not only helped us to streamline our logistic processes and tracking mechanism, but has made us far more efficient.',
             name: 'Bhavin D.',
-            role: 'MANAGER – ECOM LOGISTICS',
+            role: 'MANAGER – LOGISTICS',
             image: OnePlusImage,
             clent: ClientImage
         },
         {
             text: 'Shipdelight has been very supportive to our technical business and requirements and their rule engine for last mile deliveries have helped us to deliver to our clients as per their expectations.',
-            name: 'SR. MANAGER OPERATIONS',
+            name: 'Nikhil C.',
             role: 'SR. MANAGER OPERATIONS',
             image: DrSeth,
             clent: ClientImage
@@ -289,7 +289,7 @@ export default function Home() {
                     </div>
                     <div className="container">
                         <h6>solutions</h6>
-                        <h2>Revolutionize with <span>Shipping Solutions</span></h2>
+                        <h2>Seamless <span>Shipping Solutions</span></h2>
                         <SliderCommon slides={slides2} />
                     </div>
                 </section>
@@ -301,7 +301,7 @@ export default function Home() {
                     </div>
                     <div className="container">
                         <h6>solutions</h6>
-                        <h2>Revolutionize Retail with <span>Shipping Solutions</span></h2>
+                        <h2>Next-Gen <span>Fuilfilment Solutions</span></h2>
                         <SliderCommon slides={slides3} />
                     </div>
                 </section>
