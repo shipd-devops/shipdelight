@@ -282,10 +282,8 @@ const Header: FC = () => {
                             <BckIcon onClick={() => setHeaderStep(0)} />
                             <p className='headerMobileText'>Company</p>
                         </Flex> : 
-                        <Link href={'/'} className={prevScrollPos > 400 && isPlatform ? 'logo-head logix' : 'logo-head'}>
-                            {
-                                prevScrollPos > 400 && isPlatform ? isElogix ? <Elogix /> : <Ilogix /> : <LogoImage />
-                            }
+                        <Link href={'/'} className={'logo-head'}>
+                           <LogoImage />
                         </Link>
                     }
                     <div className="header--links">
