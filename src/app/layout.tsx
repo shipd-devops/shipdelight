@@ -236,8 +236,8 @@ export default function RootLayout({
         </noscript>
 
         {/* LINKEDIN */}
-        {/* <script type="text/javascript" async src="https://snap.licdn.com/li.lms-analytics/insight.min.js"></script>
-        <script type="text/javascript">  
+        <Script type="text/javascript" async src="https://snap.licdn.com/li.lms-analytics/insight.min.js" />
+        <Script type="text/javascript">  
         {`
           _linkedin_partner_id = "3731164";
           window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
@@ -252,10 +252,10 @@ export default function RootLayout({
           b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
           s.parentNode.insertBefore(b, s);})(window.lintrk);
         `}
-        </script>
+        </Script>
         <noscript>
           <img height="1" width="1" style={{display:"none"}} alt="" src="https://px.ads.linkedin.com/collect/?pid=3731164&fmt=gif" />
-        </noscript> */}
+        </noscript>
         
         {/* BUTTON TO SEND TO THANK YOU (FORM) */}
         <Script type="text/javascript">
