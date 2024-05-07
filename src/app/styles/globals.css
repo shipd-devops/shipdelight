@@ -468,9 +468,17 @@ section {
   position: relative;
   flex-wrap: wrap;
 }
+.brands-list:last-child {
+  margin-bottom: 0;
+}
 .swiper--contaier .swiperslide--slide.full {
   width: 100%;
   flex-direction: row;
+}
+.swiper--contaier .swiperslide--slide.section-yellow {
+  background: var(--Other-light-beige, #F7F3EA);
+  border: none;
+  box-shadow: none;
 }
 .swiper--contaier .swiperslide--slide.full > * {
   width: 50%;
@@ -494,6 +502,15 @@ section {
   top: -53.734px;
   content: '';
   z-index: 1;
+}
+.brands-list.white {
+  display: block;
+}
+.brands-list.white::before {
+  background: linear-gradient(90deg, #FFF 23.09%, rgba(247, 243, 234, 0.00) 95.35%);
+}
+.brands-list.white::after {
+  background: linear-gradient(270deg, #FFF 23.09%, rgba(247, 243, 234, 0.00) 95.35%);
 }
 .brands-list::after {
   background: linear-gradient(270deg, #F7F3EA 23.09%, rgba(247, 243, 234, 0.00) 95.35%);
@@ -896,6 +913,11 @@ section {
   text-align: center;
   background: linear-gradient(115deg, #DAD7FF 6.09%, #FFDBDB 96.91%);
 }
+.gradient-2.solution {
+  background: linear-gradient(115deg, #DAD7FF 6.09%, #FFDBDB 96.91%);
+  overflow: hidden;
+  padding: 100px 0;
+} 
 .platform-banner.u-logix {
   padding: 120px 0;
   margin-top: 16px;
@@ -1897,6 +1919,37 @@ img {
 }
 .opening-collapse--head a:last-child {
   white-space: nowrap;
+}
+.shipdelight-in {
+  width: 200px;
+}
+.banner-img--d2c {
+  max-width: 50%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.marquee {
+  --gap: 1rem;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 20px;
+  width: 100%;
+}
+.marquee__content {
+  animation: scroll 10s linear infinite;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  padding: 0 0 50px;
+}
+.marquee__content .brands-list--item {
+  box-shadow: 0px 72px 20px 0px rgba(0, 0, 0, 0.00), 0px 46px 18px 0px rgba(0, 0, 0, 0.01), 0px 20px 16px 0px rgba(0, 0, 0, 0.05), 0px 12px 12px 0px rgba(0, 0, 0, 0.09);
+  filter: none;
 }
 /*  ================================ CAREER ================================  */
 .opening-container {
@@ -3153,7 +3206,9 @@ button.back-to-top.show:active {
   margin-top: -100px;
   margin-bottom: -100px;
 }
-
+.ant-form-item .ant-select-multiple .ant-select-selection-placeholder {
+  inset-inline-start: 20px;
+}
 /* ==========================================>>  RESPONSIVE  <<========================================== */
 @media screen and (min-width: 1600px) { 
   .info-product--image img.platform {
@@ -5044,5 +5099,13 @@ button.back-to-top.show:active {
   }
   .common--content--item-details p {
     line-height: 1.5;
+  }
+}
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
   }
 }

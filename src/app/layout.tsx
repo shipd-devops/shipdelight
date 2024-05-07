@@ -183,7 +183,6 @@ export default function RootLayout({
     }
   };
   const { title, description } = getMetadata();
-  console.log(pathname);
   return (
     <html lang="en">
       <head>

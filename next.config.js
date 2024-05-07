@@ -8,5 +8,29 @@ module.exports = {
         });
       
         return config;
-      }
+      },
+      async redirects() {
+        return [
+          {
+            source: '/about-us',
+            destination: '/about',
+            permanent: true,
+          },
+          {
+            source: '/products/:path',
+            destination: '/',
+            permanent: true,
+          },
+          {
+            source: '/products',
+            destination: '/',
+            permanent: true,
+          },
+          {
+            source: '/how-it-works',
+            destination: '/',
+            permanent: true,
+          },
+        ]
+      },
 };

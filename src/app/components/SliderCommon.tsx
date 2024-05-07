@@ -9,9 +9,10 @@ import LinkArrow from '../../../public/images/link-arrow.svg'
 
 interface Props {
     slides: any;
+    sectionYellow?: any;
 }
 
-const SliderCommon: FC<Props> = ({ slides }) => {
+const SliderCommon: FC<Props> = ({ slides, sectionYellow }) => {
     return (
         <div className="swiper--contaier">
             {/* <Swiper
@@ -22,11 +23,11 @@ const SliderCommon: FC<Props> = ({ slides }) => {
             > */}
                 {slides.map((slide: any, index: number) => (
                     // <SwiperSlide key={index}>
-                        <div className={slide.full ? "swiperslide--slide full" : "swiperslide--slide"} key={index}>
+                        <div className={`${slide.full ? "swiperslide--slide full" : "swiperslide--slide"} ${sectionYellow ? 'section-yellow' : ''}`} key={index}>
                             <div>
                                 <h3>{slide.title}</h3>
                                 <p>{slide.text}</p>
-                                <Link className="arrow-link" href={slide.link}>{slide.linkText} <LinkArrow /></Link>
+                                {slide.link && <Link className="arrow-link" href={slide.link}>{slide.linkText} <LinkArrow /></Link>}
                             </div>
                             <Image src={slide.image} alt="swiper image" />
                         </div>

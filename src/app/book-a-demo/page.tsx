@@ -92,7 +92,7 @@ export default function Home() {
               throw new Error('Network response was not ok');
             }
             const responseData = await response.json();
-            router.push('thankyou')
+            router.push('/thankyou')
             console.log('Form data sent successfully:', responseData);
           } catch (error) {
             console.error('Error sending form data:', error);
@@ -196,7 +196,7 @@ export default function Home() {
                         }
                     </div>
                     <div className="pricing--image">
-                        <Image src={PricingImage} alt="kl" />
+                        <Image src={PricingImage} alt="pricing--image" />
                     </div>
                 </div>
             </section>

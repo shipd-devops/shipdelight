@@ -14,39 +14,72 @@ import Brand9 from '../../../public/images/brand-9.svg'
 
 interface Props {
     normal?: any;
+    white?: boolean
 }
 
-const BrandList: FC<Props> = ({ normal }) => {
+const BrandList: FC<Props> = ({ normal, white }) => {
     return (
        <>
-            <div className={normal ? "brands-list normal" : 'brands-list'}>
-                <div className="brands-list--item">
-                    <Brand1 />
-                </div>
-                <div className="brands-list--item">
-                    <Brand2 />
-                </div>
-                <div className="brands-list--item">
-                    <Brand3 />
-                </div>
-                <div className="brands-list--item">
-                    <div style={{marginTop: '16px'}}>
-                        <Brand4 />
+        <div className={normal ? "brands-list normal" : white ? 'brands-list white' : 'brands-list'}>
+            <div className='marquee'>
+                <div className="marquee__content">
+                    <div className="brands-list--item">
+                        <Brand1 />
+                    </div>
+                    <div className="brands-list--item">
+                        <Brand2 />
+                    </div>
+                    <div className="brands-list--item">
+                        <Brand3 />
+                    </div>
+                    <div className="brands-list--item">
+                        <div style={{marginTop: '16px'}}>
+                            <Brand4 />
+                        </div>
+                    </div>
+                    <div className="brands-list--item">
+                        <Brand5 />
+                    </div>
+                    <div className="brands-list--item">
+                        <Brand8 />
+                    </div>
+                    <div className="brands-list--item">
+                        <Brand9 />
+                    </div>
+                    <div className="brands-list--item">
+                        <Brand7 />
                     </div>
                 </div>
-                <div className="brands-list--item">
-                    <Brand5 />
-                </div>
-                <div className="brands-list--item">
-                    <Brand8 />
-                </div>
-                <div className="brands-list--item">
-                    <Brand9 />
-                </div>
-                <div className="brands-list--item">
-                    <Brand7 />
+                <div className="marquee__content">
+                    <div className="brands-list--item">
+                        <Brand1 />
+                    </div>
+                    <div className="brands-list--item">
+                        <Brand2 />
+                    </div>
+                    <div className="brands-list--item">
+                        <Brand3 />
+                    </div>
+                    <div className="brands-list--item">
+                        <div style={{marginTop: '16px'}}>
+                            <Brand4 />
+                        </div>
+                    </div>
+                    <div className="brands-list--item">
+                        <Brand5 />
+                    </div>
+                    <div className="brands-list--item">
+                        <Brand8 />
+                    </div>
+                    <div className="brands-list--item">
+                        <Brand9 />
+                    </div>
+                    <div className="brands-list--item">
+                        <Brand7 />
+                    </div>
                 </div>
             </div>
+        </div>
        </>
     )
 }
