@@ -22,13 +22,13 @@ import CompanyIcon from '../../../public/images/company-icon.svg'
 import IndustryIcon from '../../../public/images/industry-icon.svg'
 import Ilogix from '../../../public/images/ilogix.svg'
 import Elogix from '../../../public/images/elogix.svg'
-import { title } from 'process';
 
 const Header: FC = () => {
     const [openDrop, setOpenDrop] = useState(-1);
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const pathname = usePathname();
     const isPlatform = pathname.includes("platforms");
+    const isD2CLanding = pathname.includes("d2c-landing-page");
     const router = useRouter();
     useEffect(() => {
         const handleScroll = () => {
@@ -263,289 +263,274 @@ const Header: FC = () => {
 
     return (
         <>
-            <header className={`sticky ${openDrop >= 0 ? 'open-drop' : ''}`}>
-                <div className="header--container">
-                    { headerStep === 1 ?
-                        <Flex align='center' gap={14}>
-                            <BckIcon onClick={() => setHeaderStep(0)} />
-                            <p className='headerMobileText'>Platforms</p>
-                        </Flex> : headerStep === 2 ?
-                        <Flex align='center' gap={14}>
-                            <BckIcon onClick={() => setHeaderStep(0)} />
-                            <p className='headerMobileText'>Solutions</p>
-                        </Flex> : headerStep === 3 ?
-                        <Flex align='center' gap={14}>
-                            <BckIcon onClick={() => setHeaderStep(0)} />
-                            <p className='headerMobileText'>Industry</p>
-                        </Flex> : headerStep === 4 ?
-                        <Flex align='center' gap={14}>
-                            <BckIcon onClick={() => setHeaderStep(0)} />
-                            <p className='headerMobileText'>Company</p>
-                        </Flex> : 
+            {
+                isD2CLanding ?
+                <header className='landing-page'>
+                    <div className="header--container">
                         <Link href={'/'} className={'logo-head'}>
-                           <LogoImage />
+                            <LogoImage />
                         </Link>
-                    }
-                    <div className="header--links">
-                        <Flex gap={8} align='center' className={openDrop === 0 || platFromPages ? "header--link active" : "header--link"} onClick={() => { setOpenDrop(openDrop === 0 ? -1 : 0) }}>
-                            <p>Platforms</p>
-                            <ChevrotDown />
-                        </Flex>
-                        <Flex gap={8} align='center' className={openDrop === 1 || solutionPages ? "header--link active" : "header--link"} onClick={() => { setOpenDrop(openDrop === 1 ? -1 : 1) }}>
-                            <p>Solutions</p>
-                            <ChevrotDown />
-                        </Flex>
-                        <Flex gap={8} align='center' className={openDrop === 2 || industryPages ? "header--link active" : "header--link"} onClick={() => { setOpenDrop(openDrop === 2 ? -1 : 2) }}>
-                            <p>Industry</p>
-                            <ChevrotDown />
-                        </Flex>
-                        <Flex gap={8} align='center' className={openDrop === 3 || aboutPage || careerPage || contactPages ? "header--link active" : "header--link"} onClick={() => { setOpenDrop(openDrop === 3 ? -1 : 3) }}>
-                            <p>Company</p>
-                            <ChevrotDown />
-                        </Flex>
-                        <Link href={'/pricing'} className={pathname.includes("pricing") ? "header--link active" : "header--link"}>
-                            <p>Pricing</p>
-                        </Link>
-                        <Link href={'/blogs'} className={pathname.includes("blogs") ? "header--link active" : "header--link"}>
-                            <p>Resources</p>
-                        </Link>
-                    </div>
-                    <div className='btn-grp'>
-                        {/* <Button type='text'>
-                            Log In
-                        </Button> */}
-                        <Button type='primary' onClick={()=>{router.push('/book-a-demo')}}>
-                            Book a Demo
+                        <Button type='primary' className='btn-main head-btn' style={{margin: '0px 20px 0', display: 'flex !important'}} onClick={()=>{router.push('/get-in-touch-d2c')}}>
+                            Get In Touch
                         </Button>
                     </div>
-                    {!burgerOpen ? 
-                        <Button type='primary' className='head-btn' onClick={()=>{router.push('/book-a-demo')}}>
-                            Book a Demo
-                        </Button> : ''
-                    }
-                    {
-                        headerStep === 0 ? 
-                        <div onClick={() => {setBurgerOpen(!burgerOpen); setHeaderStep(0);}} className={`burger ${burgerOpen ? 'is-active' : ''}`} id="burger">
-                            <span className="burger-line"></span>
-                            <span className="burger-line"></span>
-                            <span className="burger-line"></span>
-                        </div> : ''
-                    }
-                    <div className={`nav-list-mobile ${burgerOpen ? 'open' : ''}`}>
-                        {/* <Collapse items={items} defaultActiveKey={['1']} onChange={onChange} /> */}
+                </header> :
+                <header className={`sticky ${openDrop >= 0 ? 'open-drop' : ''}`}>
+                    <div className="header--container">
+                        { headerStep === 1 ?
+                            <Flex align='center' gap={14}>
+                                <BckIcon onClick={() => setHeaderStep(0)} />
+                                <p className='headerMobileText'>Platforms</p>
+                            </Flex> : headerStep === 2 ?
+                            <Flex align='center' gap={14}>
+                                <BckIcon onClick={() => setHeaderStep(0)} />
+                                <p className='headerMobileText'>Solutions</p>
+                            </Flex> : headerStep === 3 ?
+                            <Flex align='center' gap={14}>
+                                <BckIcon onClick={() => setHeaderStep(0)} />
+                                <p className='headerMobileText'>Industry</p>
+                            </Flex> : headerStep === 4 ?
+                            <Flex align='center' gap={14}>
+                                <BckIcon onClick={() => setHeaderStep(0)} />
+                                <p className='headerMobileText'>Company</p>
+                            </Flex> : 
+                            <Link href={'/'} className={'logo-head'}>
+                            <LogoImage />
+                            </Link>
+                        }
+                        <div className="header--links">
+                            <Flex gap={8} align='center' className={openDrop === 0 || platFromPages ? "header--link active" : "header--link"} onClick={() => { setOpenDrop(openDrop === 0 ? -1 : 0) }}>
+                                <p>Platforms</p>
+                                <ChevrotDown />
+                            </Flex>
+                            <Flex gap={8} align='center' className={openDrop === 1 || solutionPages ? "header--link active" : "header--link"} onClick={() => { setOpenDrop(openDrop === 1 ? -1 : 1) }}>
+                                <p>Solutions</p>
+                                <ChevrotDown />
+                            </Flex>
+                            <Flex gap={8} align='center' className={openDrop === 2 || industryPages ? "header--link active" : "header--link"} onClick={() => { setOpenDrop(openDrop === 2 ? -1 : 2) }}>
+                                <p>Industry</p>
+                                <ChevrotDown />
+                            </Flex>
+                            <Flex gap={8} align='center' className={openDrop === 3 || aboutPage || careerPage || contactPages ? "header--link active" : "header--link"} onClick={() => { setOpenDrop(openDrop === 3 ? -1 : 3) }}>
+                                <p>Company</p>
+                                <ChevrotDown />
+                            </Flex>
+                            <Link href={'/pricing'} className={pathname.includes("pricing") ? "header--link active" : "header--link"}>
+                                <p>Pricing</p>
+                            </Link>
+                            <Link href={'/blogs'} className={pathname.includes("blogs") ? "header--link active" : "header--link"}>
+                                <p>Resources</p>
+                            </Link>
+                        </div>
+                        <div className='btn-grp'>
+                            {/* <Button type='text'>
+                                Log In
+                            </Button> */}
+                            <Button type='primary' onClick={()=>{router.push('/book-a-demo')}}>
+                                Book a Demo
+                            </Button>
+                        </div>
+                        {!burgerOpen ? 
+                            <Button type='primary' className='head-btn' onClick={()=>{router.push('/book-a-demo')}}>
+                                Book a Demo
+                            </Button> : ''
+                        }
                         {
                             headerStep === 0 ? 
-                            <div className='nav-list-mobile--inner'>
-                                <div className="nav-list-mobile--item" onClick={()=>{setHeaderStep(1)}}>
-                                    <Flex justify='space-between' align='center'>
-                                        <p className='header-custom-ink'>Platforms</p>
-                                        <Chevron />
-                                    </Flex>
-                                </div>
-                                <div className="nav-list-mobile--item" onClick={()=>{setHeaderStep(2)}}>
-                                    <Flex justify='space-between' align='center'>
-                                        <p className='header-custom-ink'>Solutions</p>
-                                        <Chevron />
-                                    </Flex>
-                                </div>
-                                <div className="nav-list-mobile--item" onClick={()=>{setHeaderStep(3)}}>
-                                    <Flex justify='space-between' align='center'>
-                                        <p className='header-custom-ink'>Industry</p>
-                                        <Chevron />
-                                    </Flex>
-                                </div>
-                                <div className="nav-list-mobile--item" onClick={()=>{setHeaderStep(4)}}>
-                                    <Flex justify='space-between' align='center'>
-                                        <p className='header-custom-ink'>Company</p>
-                                        <Chevron />
-                                    </Flex>
-                                </div>
-                                <div className="nav-list-mobile--item">
-                                    <Link href={'/pricing'} className="header--link">
-                                        Pricing
-                                    </Link>
-                                </div>
-                                <div className="nav-list-mobile--item">
-                                    <Link href={'/blogs'} className="header--link">
-                                        Resources
-                                    </Link>
-                                </div>
-                            </div> :
-                            headerStep === 1 ?
-                            <div className='nav-list-mobile--inner'>
-                                <div className='header-dropdown'>
-                                    {platfromLinks.map((item, index)=>(
-                                        <div className="header-dropdown--item" key={index}>
+                            <div onClick={() => {setBurgerOpen(!burgerOpen); setHeaderStep(0);}} className={`burger ${burgerOpen ? 'is-active' : ''}`} id="burger">
+                                <span className="burger-line"></span>
+                                <span className="burger-line"></span>
+                                <span className="burger-line"></span>
+                            </div> : ''
+                        }
+                        <div className={`nav-list-mobile ${burgerOpen ? 'open' : ''}`}>
+                            {/* <Collapse items={items} defaultActiveKey={['1']} onChange={onChange} /> */}
+                            {
+                                headerStep === 0 ? 
+                                <div className='nav-list-mobile--inner'>
+                                    <div className="nav-list-mobile--item" onClick={()=>{setHeaderStep(1)}}>
+                                        <Flex justify='space-between' align='center'>
+                                            <p className='header-custom-ink'>Platforms</p>
+                                            <Chevron />
+                                        </Flex>
+                                    </div>
+                                    <div className="nav-list-mobile--item" onClick={()=>{setHeaderStep(2)}}>
+                                        <Flex justify='space-between' align='center'>
+                                            <p className='header-custom-ink'>Solutions</p>
+                                            <Chevron />
+                                        </Flex>
+                                    </div>
+                                    <div className="nav-list-mobile--item" onClick={()=>{setHeaderStep(3)}}>
+                                        <Flex justify='space-between' align='center'>
+                                            <p className='header-custom-ink'>Industry</p>
+                                            <Chevron />
+                                        </Flex>
+                                    </div>
+                                    <div className="nav-list-mobile--item" onClick={()=>{setHeaderStep(4)}}>
+                                        <Flex justify='space-between' align='center'>
+                                            <p className='header-custom-ink'>Company</p>
+                                            <Chevron />
+                                        </Flex>
+                                    </div>
+                                    <div className="nav-list-mobile--item">
+                                        <Link href={'/pricing'} className="header--link">
+                                            Pricing
+                                        </Link>
+                                    </div>
+                                    <div className="nav-list-mobile--item">
+                                        <Link href={'/blogs'} className="header--link">
+                                            Resources
+                                        </Link>
+                                    </div>
+                                </div> :
+                                headerStep === 1 ?
+                                <div className='nav-list-mobile--inner'>
+                                    <div className='header-dropdown'>
+                                        {platfromLinks.map((item, index)=>(
+                                            <div className="header-dropdown--item" key={index}>
+                                                <Flex gap={8}>
+                                                    <div className="svg-div">
+                                                        {item.icon}
+                                                    </div>
+                                                    <div>
+                                                        <p className='title-big'>{item.title}</p>
+                                                        {item.links.map((link, indexInner)=>(
+                                                            <Link href={link.link} className='header-dropdown--link' key={indexInner}>
+                                                                <div>
+                                                                    <Flex align='center' gap={12}>
+                                                                        <p className='title-main'>{link.title}</p>
+                                                                        {link.tag ? <span className='popular'>{link.tag}</span> : ''}
+                                                                    </Flex>
+                                                                    {link.text ? <p>{link.text}</p> : ''}
+                                                                </div>
+                                                            </Link>
+                                                        ))}
+                                                    </div>
+                                                </Flex>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div> : headerStep === 2 ?
+                                <div className='nav-list-mobile--inner'>
+                                    <div className='header-dropdown'>
+                                        {solutionsLinks.map((item, index)=>(
+                                            <div className="header-dropdown--item" key={index}>
+                                                <Flex gap={8}>
+                                                    <div className="svg-div" style={{marginTop: index > 0 ? '-8px' : ''}}>
+                                                        {item.icon}
+                                                    </div>
+                                                    <div>
+                                                        <p className='title-big'>{item.title}</p>
+                                                        {item.links.map((link, indexInner)=>(
+                                                            <Link href={link.link} className='header-dropdown--link' key={indexInner}>
+                                                                <div>
+                                                                    <Flex align='center' gap={12}>
+                                                                        <p className='title-main'>{link.title}</p>
+                                                                    </Flex>
+                                                                </div>
+                                                            </Link>
+                                                        ))}
+                                                    </div>
+                                                </Flex>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div> : headerStep === 4 ?
+                                <div className='nav-list-mobile--inner'>
+                                    <div className='header-dropdown'>
+                                        <div className="header-dropdown--item">
                                             <Flex gap={8}>
+                                                <div className="svg-div">
+                                                    {comapaniesLink.icon}
+                                                </div>
+                                                <div>
+                                                    <p className='title-big'>{comapaniesLink.title}</p>
+                                                    {comapaniesLink.links.map((link, indexInner)=>(
+                                                        <Link href={link.link} className='header-dropdown--link' key={indexInner}>
+                                                            <div>
+                                                                <Flex align='center' gap={12}>
+                                                                    <p className='title-main'>{link.title}</p>
+                                                                </Flex>
+                                                            </div>
+                                                        </Link>
+                                                    ))}
+                                                </div>
+                                            </Flex>
+                                        </div>
+                                    </div>
+                                </div> : headerStep === 3 ?
+                                <div className='nav-list-mobile--inner'>
+                                    <div className='header-dropdown'>
+                                        <div className="header-dropdown--item">
+                                            <Flex gap={8}>
+                                                <div className="svg-div">
+                                                    {industriesLink.icon}
+                                                </div>
+                                                <div>
+                                                    <p className='title-big'>{industriesLink.title}</p>
+                                                    {industriesLink.links.map((link, indexInner)=>(
+                                                        <Link href={link.link} className='header-dropdown--link' key={indexInner}>
+                                                            <div>
+                                                                <Flex align='center' gap={12}>
+                                                                    <p className='title-main'>{link.title}</p>
+                                                                </Flex>
+                                                            </div>
+                                                        </Link>
+                                                    ))}
+                                                    {industriesLink.links2.map((link, indexInner)=>(
+                                                        <Link href={link.link} className='header-dropdown--link' key={indexInner}>
+                                                            <div>
+                                                                <Flex align='center' gap={12}>
+                                                                    <p className='title-main'>{link.title}</p>
+                                                                </Flex>
+                                                            </div>
+                                                        </Link>
+                                                    ))}
+                                                </div>
+                                            </Flex>
+                                        </div>
+                                    </div>
+                                </div>
+                                : ''
+                            }
+                            {burgerOpen && headerStep === 0 ?
+                            <Button type='primary' className='btn-main' style={{margin: '20px 20px 0'}} onClick={()=>{router.push('/book-a-demo')}}>
+                                Book a Demo
+                            </Button> : '' }
+                        </div>
+                    </div>
+                    {openDrop === 0 ?
+                        <div className='header--overlay'>
+                            <span onClick={()=>{setOpenDrop(-1)}}></span>
+                            <div className='header-dropdown'>
+                                {platfromLinks.map((item, index)=>(
+                                    <div className="header-dropdown--item" key={index}>
+                                        {item.link ?
+                                            <Link href={item.link}>
                                                 <div className="svg-div">
                                                     {item.icon}
                                                 </div>
-                                                <div>
-                                                    <p className='title-big'>{item.title}</p>
-                                                    {item.links.map((link, indexInner)=>(
-                                                        <Link href={link.link} className='header-dropdown--link' key={indexInner}>
-                                                            <div>
-                                                                <Flex align='center' gap={12}>
-                                                                    <p className='title-main'>{link.title}</p>
-                                                                    {link.tag ? <span className='popular'>{link.tag}</span> : ''}
-                                                                </Flex>
-                                                                {link.text ? <p>{link.text}</p> : ''}
-                                                            </div>
-                                                        </Link>
-                                                    ))}
-                                                </div>
-                                            </Flex>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div> : headerStep === 2 ?
-                            <div className='nav-list-mobile--inner'>
-                                <div className='header-dropdown'>
-                                    {solutionsLinks.map((item, index)=>(
-                                        <div className="header-dropdown--item" key={index}>
-                                            <Flex gap={8}>
-                                                <div className="svg-div" style={{marginTop: index > 0 ? '-8px' : ''}}>
+                                                <p className='title-big'>{item.title}</p>
+                                                <p className={index === 2 ? 'max-235' : ''}>{item.text}</p>
+                                            </Link> :
+                                            <div>
+                                                <div className="svg-div">
                                                     {item.icon}
                                                 </div>
-                                                <div>
-                                                    <p className='title-big'>{item.title}</p>
-                                                    {item.links.map((link, indexInner)=>(
-                                                        <Link href={link.link} className='header-dropdown--link' key={indexInner}>
-                                                            <div>
-                                                                <Flex align='center' gap={12}>
-                                                                    <p className='title-main'>{link.title}</p>
-                                                                </Flex>
-                                                            </div>
-                                                        </Link>
-                                                    ))}
-                                                </div>
-                                            </Flex>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div> : headerStep === 4 ?
-                            <div className='nav-list-mobile--inner'>
-                                <div className='header-dropdown'>
-                                    <div className="header-dropdown--item">
-                                        <Flex gap={8}>
-                                            <div className="svg-div">
-                                                {comapaniesLink.icon}
+                                                <p className='title-big'>{item.title}</p>
+                                                <p className={index === 2 ? 'max-235' : ''}>{item.text}</p>
                                             </div>
-                                            <div>
-                                                <p className='title-big'>{comapaniesLink.title}</p>
-                                                {comapaniesLink.links.map((link, indexInner)=>(
-                                                    <Link href={link.link} className='header-dropdown--link' key={indexInner}>
-                                                        <div>
-                                                            <Flex align='center' gap={12}>
-                                                                <p className='title-main'>{link.title}</p>
-                                                            </Flex>
-                                                        </div>
-                                                    </Link>
-                                                ))}
-                                            </div>
-                                        </Flex>
-                                    </div>
-                                </div>
-                            </div> : headerStep === 3 ?
-                            <div className='nav-list-mobile--inner'>
-                                <div className='header-dropdown'>
-                                    <div className="header-dropdown--item">
-                                        <Flex gap={8}>
-                                            <div className="svg-div">
-                                                {industriesLink.icon}
-                                            </div>
-                                            <div>
-                                                <p className='title-big'>{industriesLink.title}</p>
-                                                {industriesLink.links.map((link, indexInner)=>(
-                                                    <Link href={link.link} className='header-dropdown--link' key={indexInner}>
-                                                        <div>
-                                                            <Flex align='center' gap={12}>
-                                                                <p className='title-main'>{link.title}</p>
-                                                            </Flex>
-                                                        </div>
-                                                    </Link>
-                                                ))}
-                                                {industriesLink.links2.map((link, indexInner)=>(
-                                                    <Link href={link.link} className='header-dropdown--link' key={indexInner}>
-                                                        <div>
-                                                            <Flex align='center' gap={12}>
-                                                                <p className='title-main'>{link.title}</p>
-                                                            </Flex>
-                                                        </div>
-                                                    </Link>
-                                                ))}
-                                            </div>
-                                        </Flex>
-                                    </div>
-                                </div>
-                            </div>
-                            : ''
-                        }
-                        {burgerOpen && headerStep === 0 ?
-                        <Button type='primary' className='btn-main' style={{margin: '20px 20px 0'}} onClick={()=>{router.push('/book-a-demo')}}>
-                            Book a Demo
-                        </Button> : '' }
-                    </div>
-                </div>
-                {openDrop === 0 ?
-                    <div className='header--overlay'>
-                        <span onClick={()=>{setOpenDrop(-1)}}></span>
-                        <div className='header-dropdown'>
-                            {platfromLinks.map((item, index)=>(
-                                <div className="header-dropdown--item" key={index}>
-                                    {item.link ?
-                                        <Link href={item.link}>
-                                            <div className="svg-div">
-                                                {item.icon}
-                                            </div>
-                                            <p className='title-big'>{item.title}</p>
-                                            <p className={index === 2 ? 'max-235' : ''}>{item.text}</p>
-                                        </Link> :
-                                        <div>
-                                            <div className="svg-div">
-                                                {item.icon}
-                                            </div>
-                                            <p className='title-big'>{item.title}</p>
-                                            <p className={index === 2 ? 'max-235' : ''}>{item.text}</p>
-                                        </div>
-                                    }
+                                        }
 
-                                    <div>
-                                        {item.links.map((link, innerIndex) =>(
-                                            <Link href={link.link} className='header-dropdown--link' key={innerIndex}>
-                                                <div>
-                                                    <Flex align='center' gap={12}>
-                                                        <p className='title-main'>{link.title}</p>
-                                                        {link.tag && <span className='popular'>{link.tag}</span>}
-                                                    </Flex>
-                                                    <p>{link.text}</p>
-                                                </div>
-                                            </Link>
-                                        ))}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    : openDrop === 1 ?
-                    <div className='header--overlay'>
-                        <span onClick={()=>{setOpenDrop(-1)}}></span>
-                        <div className='header-dropdown second'>
-                            <div>
-                                {solutionsLinks.map((item, index)=>(
-                                    <div className="header-dropdown--item" key={index}>
                                         <div>
-                                            <div className="svg-div">
-                                                {item.icon}
-                                            </div>
-                                            <p className='title-big'>{item.title}</p>
-                                            <p>{item.text}</p>
-                                        </div>
-                                        <div>
-                                            {item.links.map((link, innerIndex)=>(
+                                            {item.links.map((link, innerIndex) =>(
                                                 <Link href={link.link} className='header-dropdown--link' key={innerIndex}>
                                                     <div>
-                                                        <p className='title-main'>{link.title}</p>
+                                                        <Flex align='center' gap={12}>
+                                                            <p className='title-main'>{link.title}</p>
+                                                            {link.tag && <span className='popular'>{link.tag}</span>}
+                                                        </Flex>
+                                                        <p>{link.text}</p>
                                                     </div>
                                                 </Link>
                                             ))}
@@ -553,177 +538,205 @@ const Header: FC = () => {
                                     </div>
                                 ))}
                             </div>
-                            {/* <div className='header-dropdown--bottom'>
-                                <div>
-                                    <BottomIcon />
-                                    <p className='title-big'>Integration</p>
-                                </div>
-                                <div>
-                                    <Link href={'/'} className='header-dropdown--link'>
-                                        <div>
-                                            <p className='title-main'>Carts</p>
-                                        </div>
-                                    </Link>
-                                    <Link href={'/'} className='header-dropdown--link'>
-                                        <div>
-                                            <p className='title-main'>Marketplaces</p>
-                                        </div>
-                                    </Link>
-                                    <Link href={'/'} className='header-dropdown--link'>
-                                        <div>
-                                            <p className='title-main'>Technology</p>
-                                        </div>
-                                    </Link>
-                                    <Link href={'/'} className='header-dropdown--link'>
-                                        <div>
-                                            <p className='title-main'>Partners</p>
-                                        </div>
-                                    </Link>
-                                    <Link href={'/'} className='header-dropdown--link'>
-                                        <div>
-                                            <p className='title-main'>Payment Gateway</p>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </div> */}
                         </div>
-                    </div>
-                     : openDrop === 2 ?
-                    <div className='header--overlay'>
-                        <span onClick={()=>{setOpenDrop(-1)}}></span>
-                        <div className='header-dropdown third'>
-                            <div className="header-dropdown--item">
+                        : openDrop === 1 ?
+                        <div className='header--overlay'>
+                            <span onClick={()=>{setOpenDrop(-1)}}></span>
+                            <div className='header-dropdown second'>
                                 <div>
-                                    <div className="svg-div">
-                                        {industriesLink.icon}
+                                    {solutionsLinks.map((item, index)=>(
+                                        <div className="header-dropdown--item" key={index}>
+                                            <div>
+                                                <div className="svg-div">
+                                                    {item.icon}
+                                                </div>
+                                                <p className='title-big'>{item.title}</p>
+                                                <p>{item.text}</p>
+                                            </div>
+                                            <div>
+                                                {item.links.map((link, innerIndex)=>(
+                                                    <Link href={link.link} className='header-dropdown--link' key={innerIndex}>
+                                                        <div>
+                                                            <p className='title-main'>{link.title}</p>
+                                                        </div>
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                                {/* <div className='header-dropdown--bottom'>
+                                    <div>
+                                        <BottomIcon />
+                                        <p className='title-big'>Integration</p>
                                     </div>
-                                    <p className='title-big'>{industriesLink.title}</p>
-                                    <p>{industriesLink.text}</p>
-                                </div>
-                            </div>
-                            <div className="header-dropdown--item">
-                                <div>
-                                    {industriesLink.links.map((link, index)=>(
-                                        <Link href={link.link} className='header-dropdown--link' key={index}>
+                                    <div>
+                                        <Link href={'/'} className='header-dropdown--link'>
                                             <div>
-                                                <p className='title-main'>{link.title}</p>
+                                                <p className='title-main'>Carts</p>
                                             </div>
                                         </Link>
-                                    ))}
-                                </div>
-                                <div>
-                                    {industriesLink.links2.map((link, index)=>(
-                                        <Link href={link.link} className='header-dropdown--link' key={index}>
+                                        <Link href={'/'} className='header-dropdown--link'>
                                             <div>
-                                                <p className='title-main'>{link.title}</p>
+                                                <p className='title-main'>Marketplaces</p>
                                             </div>
                                         </Link>
-                                    ))}
-                                </div>
+                                        <Link href={'/'} className='header-dropdown--link'>
+                                            <div>
+                                                <p className='title-main'>Technology</p>
+                                            </div>
+                                        </Link>
+                                        <Link href={'/'} className='header-dropdown--link'>
+                                            <div>
+                                                <p className='title-main'>Partners</p>
+                                            </div>
+                                        </Link>
+                                        <Link href={'/'} className='header-dropdown--link'>
+                                            <div>
+                                                <p className='title-main'>Payment Gateway</p>
+                                            </div>
+                                        </Link>
+                                    </div>
+                                </div> */}
                             </div>
                         </div>
-                    </div>
-                     : openDrop === 3 ?
-                    <div className='header--overlay'>
-                        <span onClick={()=>{setOpenDrop(-1)}}></span>
-                        <div className='header-dropdown fourth'>
-                            {/* <div className="header-dropdown--item">
-                                <div>
-                                    <div className="svg-div">
-                                        <IlogixIcon />
+                        : openDrop === 2 ?
+                        <div className='header--overlay'>
+                            <span onClick={()=>{setOpenDrop(-1)}}></span>
+                            <div className='header-dropdown third'>
+                                <div className="header-dropdown--item">
+                                    <div>
+                                        <div className="svg-div">
+                                            {industriesLink.icon}
+                                        </div>
+                                        <p className='title-big'>{industriesLink.title}</p>
+                                        <p>{industriesLink.text}</p>
                                     </div>
-                                    <p className='title-big'>Resource</p>
-                                    <p>Lorem ipsum dolor sit amet consectetur. Vulputate leo magna dolor</p>
                                 </div>
-                                <div>
-                                    <Link href={'/blogs'} className='header-dropdown--link'>
-                                        <div>
-                                            <p className='title-main'>Blogs</p>
-                                        </div>
-                                    </Link>
-                                    <Link href={'/reports'} className='header-dropdown--link'>
-                                        <div>
-                                            <p className='title-main'>Reports</p>
-                                        </div>
-                                    </Link>
-                                    <Link href={'/case-studies'} className='header-dropdown--link'>
-                                        <div>
-                                            <p className='title-main'>Case Studies</p>
-                                        </div>
-                                    </Link>
-                                    <Link href={'/events'} className='header-dropdown--link'>
-                                        <div>
-                                            <p className='title-main'>Events & Webinars</p>
-                                        </div>
-                                    </Link>
-                                    <Link href={'/'} className='header-dropdown--link'>
-                                        <div>
-                                            <p className='title-main'>Help & Support</p>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </div>
-                            <div className="header-dropdown--item">
-                                <div>
-                                    <div className="svg-div">
-                                        <IlogixIcon />
+                                <div className="header-dropdown--item">
+                                    <div>
+                                        {industriesLink.links.map((link, index)=>(
+                                            <Link href={link.link} className='header-dropdown--link' key={index}>
+                                                <div>
+                                                    <p className='title-main'>{link.title}</p>
+                                                </div>
+                                            </Link>
+                                        ))}
                                     </div>
-                                    <p className='title-big'>Company</p>
-                                    <p>Lorem ipsum dolor sit amet consectetur. Vulputate leo magna dolor</p>
-                                </div>
-                                <div>
-                                    <Link href={'/about'} className='header-dropdown--link'>
-                                        <div>
-                                            <p className='title-main'>About</p>
-                                        </div>
-                                    </Link>
-                                    <Link href={'/news'} className='header-dropdown--link'>
-                                        <div>
-                                            <p className='title-main'>News & PRs</p>
-                                        </div>
-                                    </Link>
-                                    <Link href={'/partners'} className='header-dropdown--link'>
-                                        <div>
-                                            <p className='title-main'>Partners</p>
-                                        </div>
-                                    </Link>
-                                    <Link href={'/career'} className='header-dropdown--link'>
-                                        <div>
-                                            <p className='title-main'>Careers</p>
-                                        </div>
-                                    </Link>
-                                    <Link href={'/contact-us'} className='header-dropdown--link'>
-                                        <div>
-                                            <p className='title-main'>Contact Us</p>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </div> */}
-                            <div className="header-dropdown--item">
-                                <div>
-                                    <div className="svg-div">
-                                    {comapaniesLink.icon}
+                                    <div>
+                                        {industriesLink.links2.map((link, index)=>(
+                                            <Link href={link.link} className='header-dropdown--link' key={index}>
+                                                <div>
+                                                    <p className='title-main'>{link.title}</p>
+                                                </div>
+                                            </Link>
+                                        ))}
                                     </div>
-                                    <p className='title-big'>{comapaniesLink.title}</p>
-                                    <p>{comapaniesLink.text}</p>
-                                </div>
-                            </div>
-                            <div className="header-dropdown--item">
-                                <div>
-                                    {comapaniesLink.links.map((link, index)=>(
-                                        <Link href={link.link} className='header-dropdown--link' key={index}>
-                                            <div>
-                                                <p className='title-main'>{link.title}</p>
-                                            </div>
-                                        </Link>
-                                    ))}
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    : ''
-                }
-            </header>
+                        : openDrop === 3 ?
+                        <div className='header--overlay'>
+                            <span onClick={()=>{setOpenDrop(-1)}}></span>
+                            <div className='header-dropdown fourth'>
+                                {/* <div className="header-dropdown--item">
+                                    <div>
+                                        <div className="svg-div">
+                                            <IlogixIcon />
+                                        </div>
+                                        <p className='title-big'>Resource</p>
+                                        <p>Lorem ipsum dolor sit amet consectetur. Vulputate leo magna dolor</p>
+                                    </div>
+                                    <div>
+                                        <Link href={'/blogs'} className='header-dropdown--link'>
+                                            <div>
+                                                <p className='title-main'>Blogs</p>
+                                            </div>
+                                        </Link>
+                                        <Link href={'/reports'} className='header-dropdown--link'>
+                                            <div>
+                                                <p className='title-main'>Reports</p>
+                                            </div>
+                                        </Link>
+                                        <Link href={'/case-studies'} className='header-dropdown--link'>
+                                            <div>
+                                                <p className='title-main'>Case Studies</p>
+                                            </div>
+                                        </Link>
+                                        <Link href={'/events'} className='header-dropdown--link'>
+                                            <div>
+                                                <p className='title-main'>Events & Webinars</p>
+                                            </div>
+                                        </Link>
+                                        <Link href={'/'} className='header-dropdown--link'>
+                                            <div>
+                                                <p className='title-main'>Help & Support</p>
+                                            </div>
+                                        </Link>
+                                    </div>
+                                </div>
+                                <div className="header-dropdown--item">
+                                    <div>
+                                        <div className="svg-div">
+                                            <IlogixIcon />
+                                        </div>
+                                        <p className='title-big'>Company</p>
+                                        <p>Lorem ipsum dolor sit amet consectetur. Vulputate leo magna dolor</p>
+                                    </div>
+                                    <div>
+                                        <Link href={'/about'} className='header-dropdown--link'>
+                                            <div>
+                                                <p className='title-main'>About</p>
+                                            </div>
+                                        </Link>
+                                        <Link href={'/news'} className='header-dropdown--link'>
+                                            <div>
+                                                <p className='title-main'>News & PRs</p>
+                                            </div>
+                                        </Link>
+                                        <Link href={'/partners'} className='header-dropdown--link'>
+                                            <div>
+                                                <p className='title-main'>Partners</p>
+                                            </div>
+                                        </Link>
+                                        <Link href={'/career'} className='header-dropdown--link'>
+                                            <div>
+                                                <p className='title-main'>Careers</p>
+                                            </div>
+                                        </Link>
+                                        <Link href={'/contact-us'} className='header-dropdown--link'>
+                                            <div>
+                                                <p className='title-main'>Contact Us</p>
+                                            </div>
+                                        </Link>
+                                    </div>
+                                </div> */}
+                                <div className="header-dropdown--item">
+                                    <div>
+                                        <div className="svg-div">
+                                        {comapaniesLink.icon}
+                                        </div>
+                                        <p className='title-big'>{comapaniesLink.title}</p>
+                                        <p>{comapaniesLink.text}</p>
+                                    </div>
+                                </div>
+                                <div className="header-dropdown--item">
+                                    <div>
+                                        {comapaniesLink.links.map((link, index)=>(
+                                            <Link href={link.link} className='header-dropdown--link' key={index}>
+                                                <div>
+                                                    <p className='title-main'>{link.title}</p>
+                                                </div>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        : ''
+                    }
+                </header>
+            }
             {!isUlogix ? 
                 <header className={`absolute ${prevScrollPos > 300 && isPlatform ? 'show' : ''}`}>
                     <div className={'header--container second'}>

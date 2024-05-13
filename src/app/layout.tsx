@@ -175,6 +175,16 @@ export default function RootLayout({
           title: "Schedule a Demo Today!",
           description: "Book a demo to experience our solutions firsthand. Discover how our services can revolutionize your business operations.",
         };
+      case "/get-in-touch-d2c":
+        return {
+          title: "Contact ShipDelight: Reach Out for D2C Insider Member Exclusive Offers",
+          description: "Connect with ShipDelight to explore exclusive offers for D2C Insider Members. Fill out the lead form and our team will get in touch with you to discuss how we can elevate your logistics operations. Don't miss out on this opportunity to optimize your D2C business with ShipDelight!",
+        };
+      case "/d2c-landing-page":
+        return {
+          title: "Exclusive D2C Insider Member Offer by ShipDelight: Optimize Your Logistics Today",
+          description: "Join ShipDelight's D2C Insider Member Offer and optimize up to 3000 orders seamlessly with iLogix Curated Pilot and enable 5 courier partners with comprehensive APIs. Don't miss out, seize this opportunity to elevate your D2C business with ShipDelight!",
+        };
       default:
         return {
           title: "ShipDelight",

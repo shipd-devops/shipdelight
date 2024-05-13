@@ -7,21 +7,24 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 import '../styles/slider.css'
+import Quotes from '../../../public/images/quotes.webp'
 
 interface Props {
     slides: any;
+    version?: boolean;
 }
 
-const Testimonial: FC<Props> = ({ slides }) => {
+const Testimonial: FC<Props> = ({ slides, version }) => {
     return (
-        <div className="testimonials">
+        <div className={version ? "testimonials version-testimonial" : "testimonials"}>
            <Swiper
                 spaceBetween={24}
                 slidesPerView={2}
                 pagination={{
-                    type: 'fraction',
+                    type: version ? 'bullets' : 'fraction',
+                    clickable: true,
                 }}
-                navigation={true}
+                navigation={version ? false : true}
                 loop={true}
                 modules={[Pagination, Navigation]}
                 grabCursor={true}
@@ -36,9 +39,10 @@ const Testimonial: FC<Props> = ({ slides }) => {
             >
                 {slides.map((slide: any, index: number) => (
                     <SwiperSlide key={index}>
-                        <div className="testimonial--slide">
+                        <div className={version ? "testimonial--slide version" : "testimonial--slide"}>
                             <div className="testimonial--content">
                                 <div className="testimonial--content--upper">
+                                    {version && <Image className='quotes--image' src={Quotes} alt='quote' />}                                    
                                     <p>{slide.text}</p>
                                     <div className="testimonial--content--details">
                                         <div>
