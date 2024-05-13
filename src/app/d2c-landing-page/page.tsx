@@ -137,7 +137,7 @@ export default function Home() {
 
     useEffect(() => {
         if (inView) {
-        const increments = maxValues.map(max => max / (timeFrame));
+        const increments = maxValues.map(max => max / (timeFrame / 5));
         let startTime: number | null = null;
         const animationFrame = (timestamp: number) => {
             if (!startTime) startTime = timestamp;
@@ -205,13 +205,15 @@ export default function Home() {
             </section>
             <section className='normal-section common-section section-yellow'>
                 <div className="container small">
-                    <Flex className='challenges-container'>
+                    <Flex className='challenges-container' align="center">
                         <div>
-                            <h2>Are You Facing Any of This Challenges in D2C Business?</h2>
+                            <h2 style={{fontWeight: 700}}>Are You Facing Any of This <span>Challenges in D2C Business?</span></h2>
                             <Flex vertical className="challenges">
                                 {challenges.map((item, index)=>(
-                                    <Flex key={index} align="center">
-                                        <AlertIcon />
+                                    <Flex key={index}>
+                                        <div style={{paddingTop: '2px'}}>
+                                            <AlertIcon />
+                                        </div>
                                         <p>{item}</p>
                                     </Flex>
                                 ))}
@@ -227,7 +229,7 @@ export default function Home() {
                 <div className="container side">
                     <Flex className='d2c-insider' vertical>
                         <div>
-                            <h2>For D2C Insider Community, ShipDelight presents:</h2>
+                            <h2 style={{fontWeight: 700}}>For D2C Insider Community, <span>ShipDelight presents:</span></h2>
                             <Flex gap={20} wrap="wrap">
                                 {presents.map((present, index)=>(
                                     <Flex key={index} className="d2c-insider--list" align="center" gap={12}>
@@ -259,7 +261,7 @@ export default function Home() {
                 <div className="container">
                     <Flex className='end-to-end--container purpose'>
                         <div>
-                            <h2>End-to-End Shipment Puzzle doesn’t Need to be Complex.</h2>
+                            <h2 style={{fontWeight: 700}}>End-to-End <span>Shipment Puzzle doesn’t Need to be Complex.</span></h2>
                             <Flex vertical className="end-to-end--list">
                                 <p><strong>Negotiate Volume Discounts:</strong> Businesses can negotiate volume discounts directly with their logistics partners.</p>
                                 <p><strong>Automated Weight Verification:</strong> By integrating their systems with logistics partners' APIs, businesses can implement weight Freezing.</p>
@@ -267,7 +269,7 @@ export default function Home() {
                                 <p><strong>Utilize Tracking and Monitoring Tools:</strong> Integration with logistics partners' tracking and monitoring systems provides businesses with real-time visibility into the shipping process.</p>
                             </Flex>
                         </div>
-                        <div>
+                        <div className="end-2-end-div">
                             <Image src={End2End} alt='end-to-end-image' className="end-2-end--image" />
                         </div>
                     </Flex>
@@ -276,7 +278,7 @@ export default function Home() {
             <section className="common-section normal-section section-yellow w-fullsection">
                 <div className="container position-relative">
                     <Flex vertical className="solutions-cta">
-                        <h2 className="mb-0 text-center">How Can We Redefine Your Customer's <br /> Post-Purchase Experience Through Logistics?</h2>
+                        <h2 style={{fontWeight: 700}} className="mb-0 text-center">How Can We Redefine Your Customer's <br /> <span>Post-Purchase Experience Through Logistics?</span></h2>
                         <SliderCommon slides={slides} />
                         <div className="swiper--contaier position-relative">
                             <div className={`swiperslide--slide full image`}>
@@ -295,7 +297,7 @@ export default function Home() {
             </section>
             <section className="normal-section common-section testimonial-section version-section">
                 <div className="container">
-                    <h2>Hear From The Best in The Business...</h2>
+                    <h2 style={{fontWeight: 700}}>Hear From <span>The Best in The Business...</span></h2>
                     <Testimonial version={true} slides={testimonialSlides} />
                 </div>
             </section>
@@ -303,7 +305,7 @@ export default function Home() {
                 <div className="container">
                     <Flex vertical gap={10} className="integration--d2c">
                         <h6 className="mb-0">Integration</h6>
-                        <h2 className="mb-0">Seamless <span>Integrations</span></h2>
+                        <h2 style={{fontWeight: 700}} className="mb-0">Seamless <span>Integrations</span></h2>
                         <p>We seamlessly integrate with popular e-commerce platforms like Shopify, WooCommerce, Magento, and more, ensuring a smooth transition for your business.</p>
                     </Flex>
                     <Image className="inte--desktop" src={D2c} alt="D2c" />
@@ -313,7 +315,7 @@ export default function Home() {
             <section className="common-section normal-section faq faq-bodered position-relative">
                 <div className="container">
                     <h6>FAQ’s</h6>
-                    <h2>Still Unsure? <span>Find Answer you are looking</span></h2>
+                    <h2 style={{fontWeight: 700}}>Still Unsure? <span>Find Answer you are looking</span></h2>
                     <Collapse 
                         expandIcon={({ isActive }) => (isActive ? <MinusImage /> : <PlusImage />)} 
                         items={items} defaultActiveKey={['1']} onChange={handleChange} 

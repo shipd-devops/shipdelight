@@ -939,6 +939,9 @@ h2.purpose-h2 + p  {
 .challenges-container {
   gap: 40px;
 }
+.challenges-container p {
+  font-size: 20px;
+}
 .challenges-container > div {
   width: 50%;
 }
@@ -1008,7 +1011,6 @@ h2.purpose-h2 + p  {
   gap: 24px;
 }
 .end-to-end--list p {
-  color: var(--text);
   font-size: 20px;
   font-weight: 400;
   line-height: 28px;
@@ -1021,6 +1023,11 @@ h2.purpose-h2 + p  {
 }
 .purpose > div:last-child img.end-2-end--image {
   margin: 0;
+  max-width: 80%;
+}
+.purpose > div:last-child.end-2-end-div {
+  display: flex;
+  justify-content: flex-end;
 }
 .dtc-home .container {
   z-index: 1;
@@ -5533,6 +5540,9 @@ header.d-none {
   }
   .swiper--contaier .swiperslide--slide.full > div:nth-last-child(2) {
     display: none;
+  }
+  .challenges-container p {
+    font-size: 18px;
   }
 }
 @keyframes scroll {

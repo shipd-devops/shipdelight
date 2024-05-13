@@ -177,6 +177,8 @@
 .testimonials .swiper-pagination-horizontal.swiper-pagination-bullets {
     top: unset;
     width: 100%;
+    right: unset;
+    left: 0;
 }
 .testimonials.normal-pagination .swiper-pagination-horizontal {
     padding-bottom: 6px;
