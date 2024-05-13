@@ -3443,6 +3443,9 @@ button.back-to-top.show:active {
 .ant-form-item .ant-select-multiple .ant-select-selection-placeholder {
   inset-inline-start: 20px;
 }
+header.d-none {
+  display: none;
+}
 .what-get {
   position: absolute;
   right: 30px;

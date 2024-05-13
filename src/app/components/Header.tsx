@@ -29,6 +29,7 @@ const Header: FC = () => {
     const pathname = usePathname();
     const isPlatform = pathname.includes("platforms");
     const isD2CLanding = pathname.includes("d2c-landing-page");
+    const isD2cCTA = pathname.includes("get-in-touch-d2c");
     const router = useRouter();
     useEffect(() => {
         const handleScroll = () => {
@@ -275,7 +276,7 @@ const Header: FC = () => {
                         </Button>
                     </div>
                 </header> :
-                <header className={`sticky ${openDrop >= 0 ? 'open-drop' : ''}`}>
+                <header className={`sticky ${isD2cCTA ? 'd-none' : ''} ${openDrop >= 0 ? 'open-drop' : ''}`}>
                     <div className="header--container">
                         { headerStep === 1 ?
                             <Flex align='center' gap={14}>
