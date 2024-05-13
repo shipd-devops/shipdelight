@@ -1,8 +1,8 @@
 'use client'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Button, Space, Input, Flex, Form } from 'antd';
+import { Button, Flex } from 'antd';
 import type { CollapseProps } from 'antd';
 import { Collapse } from 'antd';
 import SliderCommon from "../components/SliderCommon";
@@ -129,9 +129,57 @@ export default function Home() {
         'NDR API',
         'Booking and Tracking API ',
         'Returns and Exchange API'
-    ]
+    ];
+    const [inView, setInView] = useState(false);
+    const [currentValues, setCurrentValues] = useState([0, 0, 0]);
+    const maxValues = [300, 100, 30];
+    const timeFrame = 5000; // 5 seconds in milliseconds
+
+    useEffect(() => {
+        if (inView) {
+        const increments = maxValues.map(max => max / (timeFrame));
+        let startTime: number | null = null;
+        const animationFrame = (timestamp: number) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min(timestamp - startTime, timeFrame);
+            const newValues = increments.map((increment, index) => {
+            const value = increment * progress;
+            return Math.min(value, maxValues[index]);
+            });
+            setCurrentValues(newValues);
+            if (progress < timeFrame) {
+            requestAnimationFrame(animationFrame);
+            }
+        };
+        requestAnimationFrame(animationFrame);
+        } else {
+        setCurrentValues([0, 0, 0]);
+        }
+    }, [inView]);
+
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+        if (entries && entries[0]) {
+        setInView(entries[0].isIntersecting);
+        }
+    };
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(handleIntersection, {
+        threshold: 0.5,
+        });
+
+        const counterSection = document.getElementById('counter-section');
+        if (counterSection) {
+        observer.observe(counterSection);
+        }
+
+        return () => {
+        observer.disconnect();
+        };
+    }, []);
     return (
         <main>
+            
             <section className="solution gradient-2 normal-section text-center dtc-home">
                 <div className="container position-relative">
                     <Image src={Brands} alt="Brands" className="dtc-brands" />
@@ -191,17 +239,17 @@ export default function Home() {
                         </div>
                         <Button onClick={handleSendEmail} type="primary" className="btn-main">Get in Touch</Button>
                     </Flex>
-                    <Flex vertical className="d2c-stats">
+                    <Flex vertical className="d2c-stats" id="counter-section">
                         <div>
-                            <p>000+</p>
+                            <p>{Math.round(currentValues[0])}+</p>
                             <p>Brands are associated with us</p>
                         </div>
                         <div>
-                            <p>000M+</p>
+                            <p>{Math.round(currentValues[1])}M+</p>
                             <p>Successful delivery experiences</p>
                         </div>
                         <div>
-                            <p>00+</p>
+                            <p>{Math.round(currentValues[2])}+</p>
                             <p>Cities delivered next day</p>
                         </div>
                     </Flex>
