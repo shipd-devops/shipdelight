@@ -52,12 +52,12 @@ export default function Home() {
                 "Value": values.companyName
             },
             {
-                "Attribute": "Features",
+                "Attribute": "mx_Features",
                 "Value": JSON.stringify(values.features)
             },
             {
                 "Attribute": "Source",
-                "Value": "Booking A Demo"
+                "Value": "D2C Landing Page"
             }
         ];
         console.log(formData, 'formData')
