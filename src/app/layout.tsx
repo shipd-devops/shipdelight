@@ -279,18 +279,18 @@ export default function RootLayout({
         </noscript>
         
         {/* BUTTON TO SEND TO THANK YOU (FORM) */}
-        <script type="text/javascript">
+        <Script type="text/javascript">
           {`
            if (window.location.href == 'https://shipdelight.com/book-a-demo') {
-            console.log('book a page 1')
-            document.querySelector(".fserv-button-submit").addEventListener("click",function() {
-                window.lintrk('click',{ conversion_id: 6615508 });
-                gtag('event', 'conversion', {'send_to': 'AW-728181268/IJHnCL6C_58DEJTUnNsC'});
-                console.log('gping tp track');
-            });
+            console.log('book a pade')
+              document.querySelector(".fserv-button-submit").addEventListener("click",function() {
+                 window.lintrk('click',{ conversion_id: 6615508 });
+                 gtag('event', 'conversion', {'send_to': 'AW-728181268/IJHnCL6C_58DEJTUnNsC'});
+                 console.log('gping tp track');
+              });
            }
           `}
-        </script>
+        </Script>
         {/* <script type="text/javascript">
           {
             `
@@ -303,12 +303,12 @@ export default function RootLayout({
         </script> */}
 
         {/* thankyou page */}
-        <script type="text/javascript"> 
+        <Script> 
           { `
               if (window.location.href == 'https://shipdelight.com/thankyou') {
                 gtag('event', 'conversion', { 'send_to': 'AW-728181268/IJHnCL6C_58DEJTUnNsC', 'value': 1.0, 'currency': 'INR' }); console.log('tracked');}
           `}
-        </script>
+        </Script>
         
       </head>
       <AntdRegistry>
