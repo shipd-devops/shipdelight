@@ -282,6 +282,7 @@ export default function RootLayout({
         <Script type="text/javascript">
           {`
            if (window.location.href == 'https://shipdelight.com/book-a-demo') {
+            console.log('book a page')
               document.querySelector(".fserv-button-submit").addEventListener("click",function() {
                  window.lintrk('click',{ conversion_id: 6615508 });
                  gtag('event', 'conversion', {'send_to': 'AW-728181268/IJHnCL6C_58DEJTUnNsC'});
