@@ -1,4 +1,5 @@
 'use client'
+import { useEffect } from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./styles/globals.css";
@@ -193,6 +194,7 @@ export default function RootLayout({
     }
   };
   const { title, description } = getMetadata();
+  
   return (
     <html lang="en">
       <head>
@@ -204,76 +206,91 @@ export default function RootLayout({
         {/* <script async type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=AW-728181268&amp;l=dataLayer&amp;cx=c"></script>
         <script async type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-MVXSPB5CC2&amp;l=dataLayer&amp;cx=c"></script> */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-728181268" />
-        <Script>
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', 'AW-728181268');`}
-        </Script>
-
+        <Script
+          id="inline-script5"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+            
+              gtag('config', 'AW-728181268');
+            `,
+          }}
+        />
         {/* GTM */}
         <Script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5CXK8T3" />
-        <Script>
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-5CXK8T3');`}
-        </Script>
-
+        <Script
+          id="inline-script4"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-5CXK8T3');
+            `,
+          }}
+        />
         {/* FACEBOOK */}
         {/* <Script src="https://connect.facebook.net/signals/config/735573410339615?v=2.9.154&amp;r=stable&amp;domain=shipdelight-v4.mars-cdn.com&amp;hme=c3a545c63044e8e9102d4f32d84a1137594d024f28e801d670bc76dc5c075575&amp;ex_m=67%2C112%2C99%2C103%2C58%2C3%2C93%2C66%2C15%2C91%2C84%2C49%2C51%2C158%2C161%2C172%2C168%2C169%2C171%2C28%2C94%2C50%2C73%2C170%2C153%2C156%2C165%2C166%2C173%2C121%2C14%2C48%2C178%2C177%2C123%2C17%2C33%2C38%2C1%2C41%2C62%2C63%2C64%2C68%2C88%2C16%2C13%2C90%2C87%2C86%2C100%2C102%2C37%2C101%2C29%2C25%2C154%2C157%2C130%2C27%2C10%2C11%2C12%2C5%2C6%2C24%2C21%2C22%2C54%2C59%2C61%2C71%2C95%2C26%2C72%2C8%2C7%2C76%2C46%2C20%2C97%2C96%2C9%2C19%2C18%2C81%2C53%2C79%2C32%2C70%2C0%2C89%2C31%2C78%2C83%2C45%2C44%2C82%2C36%2C4%2C85%2C77%2C42%2C39%2C34%2C80%2C2%2C35%2C60%2C40%2C98%2C43%2C75%2C65%2C104%2C57%2C56%2C30%2C92%2C55%2C52%2C47%2C74%2C69%2C23%2C105" async /> */}
         <Script async src="https://connect.facebook.net/en_US/fbevents.js" />
-        <Script>
-          {`
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '735573410339615');
-            fbq('track', 'PageView');
-          `}
-        </Script>
+        <Script
+          id="inline-script3"
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '735573410339615');
+              fbq('track', 'PageView');
+            `,
+          }}
+        />
         <noscript>  
           <img height="1" width="1" style={{display:"none"}} src="https://www.facebook.com/tr?id=735573410339615&ev=PageView&noscript=1" />
         </noscript>
 
         {/* LINKEDIN */}
         <Script type="text/javascript" async src="https://snap.licdn.com/li.lms-analytics/insight.min.js" />
-        <Script type="text/javascript">  
-        {`
-          _linkedin_partner_id = "3731164";
-                
-          window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-          
-          window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-        `}
-        </Script>
-        <Script type="text/javascript"> 
-            {`
+        <Script
+          id="inline-script2"
+          dangerouslySetInnerHTML={{
+            __html: `
+              _linkedin_partner_id = "3731164";
+                  
+              window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+              
+              window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+            `,
+          }}
+        />
+        <Script
+          id="inline-script1"
+          dangerouslySetInnerHTML={{
+            __html: `
               (function(l) {
-          
-                if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
-                
-                window.lintrk.q=[]}
-                
-                var s = document.getElementsByTagName("script")[0];
-                
-                var b = document.createElement("script");
-                
-                b.type = "text/javascript";b.async = true;
-                
-                b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-                
-                s.parentNode.insertBefore(b, s);})(window.lintrk);
-            `}
-        </Script>
+              if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+
+              window.lintrk.q=[]}
+              
+              var s = document.getElementsByTagName("script")[0];
+              
+              var b = document.createElement("script");
+              
+              b.type = "text/javascript";b.async = true;
+              
+              b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+              
+              s.parentNode.insertBefore(b, s);})(window.lintrk);
+            `,
+          }}
+        />
         <noscript>
           <img height="1" width="1" style={{display:"none"}} alt="" src="https://px.ads.linkedin.com/collect/?pid=3731164&fmt=gif" />
         </noscript>
@@ -300,28 +317,16 @@ export default function RootLayout({
           });
           `}
         </Script> */}
-        <Script
+        {/* <Script
           id="inline-script"
           dangerouslySetInnerHTML={{
             __html: `
-                if (window.location.href === 'https://shipdelight.com/book-a-demo') {
-                    console.log('book a page');
-                    const button = document.querySelector(".fserv-button-submit");
-                    if (button) {
-                        button.addEventListener("click", function() {
-                            window.lintrk('click', { conversion_id: 6615508 });
-                            gtag('event', 'conversion', { 'send_to': 'AW-728181268/IJHnCL6C_58DEJTUnNsC' });
-                            console.log('going to track');
-                        });
-                    } else {
-                        console.warn('.fserv-button-submit not found');
-                    }
-                } else {
-                    console.log('Not on the book a demo page');
-                }
+            console.log('okokoko')
+              window.lintrk('click', { conversion_id: 6615508 });
+              gtag('event', 'conversion', { 'send_to': 'AW-728181268/IJHnCL6C_58DEJTUnNsC' });
             `,
           }}
-        />
+        /> */}
         {/* <script type="text/javascript">
           {
             `
@@ -334,12 +339,12 @@ export default function RootLayout({
         </script> */}
 
         {/* thankyou page */}
-        <Script> 
+        {/* <Script> 
           { `
               if (window.location.href == 'https://shipdelight.com/thankyou') {
                 gtag('event', 'conversion', { 'send_to': 'AW-728181268/IJHnCL6C_58DEJTUnNsC', 'value': 1.0, 'currency': 'INR' }); }
           `}
-        </Script>
+        </Script> */}
         
       </head>
       <AntdRegistry>

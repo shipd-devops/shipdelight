@@ -92,8 +92,13 @@ export default function Home() {
               throw new Error('Network response was not ok');
             }
             const responseData = await response.json();
-            router.push('/thankyou')
+
             console.log('Form data sent successfully:', responseData);
+            window.lintrk('click', { conversion_id: 6615508 });
+            window.gtag('event', 'conversion', { 'send_to': 'AW-728181268/IJHnCL6C_58DEJTUnNsC' });
+            console.log('check network')
+            router.push('/thankyou')
+            window.gtag('event', 'conversion', { 'send_to': 'AW-728181268/IJHnCL6C_58DEJTUnNsC', 'value': 1.0, 'currency': 'INR' });
           } catch (error) {
             console.error('Error sending form data:', error);
             errorHnale()
