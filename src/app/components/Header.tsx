@@ -322,6 +322,9 @@ const Header: FC = () => {
                             <Link href={'/blogs'} className={pathname.includes("blogs") ? "header--link active" : "header--link"}>
                                 <p>Resources</p>
                             </Link>
+                            <Link href={'/order-tracking'} className={pathname.includes("order-tracking") ? "header--link active" : "header--link"}>
+                                <p>Tracking</p>
+                            </Link>
                         </div>
                         <div className='btn-grp'>
                             {/* <Button type='text'>
@@ -381,6 +384,11 @@ const Header: FC = () => {
                                     <div className="nav-list-mobile--item">
                                         <Link href={'/blogs'} className="header--link">
                                             Resources
+                                        </Link>
+                                    </div>
+                                    <div className="nav-list-mobile--item">
+                                        <Link href={'/order-tracking'} className="header--link">
+                                            Tracking
                                         </Link>
                                     </div>
                                 </div> :

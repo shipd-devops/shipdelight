@@ -93,6 +93,13 @@ h4 {
   line-height: normal;
   margin-bottom: 8px;
 }
+h5 {
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.075px;
+}
 p {
   color: var(--text-2);
   font-size: 18px;
@@ -1010,6 +1017,34 @@ h2.purpose-h2 + p  {
 .end-to-end--list {
   gap: 24px;
 }
+.ant-radio-wrapper span.ant-radio+* {
+  color: var(--medium, #222);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: 0.075px;
+}
+.ant-radio-wrapper.ant-radio-wrapper-checked span.ant-radio+* {
+  color: var(--text);
+  font-weight: 500;
+}
+.custom-radio--btns .ant-radio .ant-radio-inner {
+  border-color: #2B2E32;
+}
+.custom-radio--btns .ant-radio-wrapper:hover .ant-radio-wrapper, .custom-radio--btns .ant-radio-wrapper:hover .ant-radio-inner {
+  border-color: #E84747;
+}
+.custom-radio--btns .ant-radio.ant-radio-checked .ant-radio-inner, .custom-radio--btns .ant-radio.ant-radio-checked:hover .ant-radio-inner {
+  border-color: #E84747 !important;
+  background: #fff;
+}
+.custom-radio--btns .ant-radio-wrapper .ant-radio-checked::after {
+  border-color: #E84747 !important;
+}
+.custom-radio--btns .ant-radio.ant-radio-checked .ant-radio-inner::after {
+  background: #E84747;
+  scale: 1.4;
+}
 .end-to-end--list p {
   font-size: 20px;
   font-weight: 400;
@@ -1040,6 +1075,10 @@ h2.purpose-h2 + p  {
 .swiper--contaier .swiperslide--slide.full.image > div:first-child {
   position: absolute;
 }
+.platform-banner.tracking-banner {
+  padding: 72px 0;
+  text-align: left;
+}
 .dtc-brands {
   position: absolute;
   top: 0px;
@@ -1062,6 +1101,69 @@ h2.purpose-h2 + p  {
 }
 .announce-div img {
   width: 28px;
+}
+.tracking-card {
+  border-radius: 12px;
+  background: #FFF;
+  padding: 50px 60px;
+}
+.tracking-card--image {
+  width: 34%;
+  margin-left: auto;
+  margin-right: 3%;
+}
+.tracking-card--content {
+  gap: 40px;
+  width: 50%;
+  max-width: 680px;
+}
+.tracking-card--content p {
+  color: var(--text-2);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 170%;
+  letter-spacing: 0.07px;
+}
+.tracking-card--content p.tracking-card-des {
+  font-size: 16px;
+}
+.tracking-card--content h5 + p {
+  line-height: 150%;
+}
+.order-racking-process {
+  gap: 46px;
+}
+.order-racking-process--para {
+  width: 723px;
+  max-width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+}
+.tracklist--item {
+  width: calc(20% - (80px/4));
+  position: relative;
+}
+.tracklist--item h4 {
+  margin-bottom: 6px;
+}
+.tracklist--item--text {
+  color: var(--medium, #222);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
+.tracklist--item::after {
+  position: absolute;
+  content: '';
+  top: 30px;
+  left: 16px;
+  width: 100%;
+  height: 1px;
+  background-image: url(/images/lines.svg);
+  z-index: -1;
+}
+.tracklist--item:last-child:after {
+  display: none;
 }
 .announce-div p {
   color: #000;
@@ -2321,6 +2423,9 @@ img {
 }
 .platform-banner .search-bar.book-demo {
   margin: 0 auto;
+}
+.platform-banner .search-bar.book-demo.track-order {
+  width: 100%;
 }
 .search-bar.book-demo .ant-space-compact {
   height: 44px;
@@ -4286,6 +4391,25 @@ header.d-none {
   .info-product--container.small > div:last-child {
     max-width: 100%;
   }
+  .tracking-card > .ant-flex {
+    flex-direction: column;
+  }
+  .tracking-card--content {
+    width: 100%;
+  }
+  .tracking-card--image {
+    width: 100%;
+    margin: 0;
+  }
+  .order-racking-process > .ant-flex {
+    flex-wrap: wrap;
+  }
+  .tracklist--item {
+    width: 31%;
+  }
+  .tracking-card {
+    padding: 40px;
+  }
 }
 @media screen and (max-width: 767px) { 
   .product-brand {
@@ -5543,6 +5667,36 @@ header.d-none {
   }
   .challenges-container p {
     font-size: 18px;
+  }
+  .tracklist--item {
+    width: 100%;
+  }
+  .tracking-card {
+    padding: 20px;
+  }
+  .tracking-card--content p.tracking-card-des {
+    line-height: 1.4;
+  }
+  .tracking-card--content {
+    gap: 30px;
+  }
+  .platform-banner .search-bar.book-demo {
+    margin-bottom: 20px;
+  }
+  .order-racking-process {
+    gap: 30px;
+  }
+  .order-racking-process > .ant-flex {
+    gap: 60px !important;
+  }
+  .tracklist--item::after {
+    transform: rotate(90deg);
+    width: 70px;
+    left: -10px;
+    top: 190px;
+  }
+  .platform-banner.tracking-banner {
+    padding: 20px 0;
   }
 }
 @keyframes scroll {
