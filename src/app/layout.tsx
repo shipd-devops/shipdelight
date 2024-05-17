@@ -281,14 +281,22 @@ export default function RootLayout({
         {/* BUTTON TO SEND TO THANK YOU (FORM) */}
         <Script type="text/javascript">
           {`
-           if (window.location.href == 'https://shipdelight.com/book-a-demo') {
-            console.log('book a pade')
-              document.querySelector(".fserv-button-submit").addEventListener("click",function() {
-                 window.lintrk('click',{ conversion_id: 6615508 });
-                 gtag('event', 'conversion', {'send_to': 'AW-728181268/IJHnCL6C_58DEJTUnNsC'});
-                 console.log('gping tp track');
-              });
-           }
+           document.addEventListener('DOMContentLoaded', function() {
+            if (window.location.href === 'https://shipdelight.com/book-a-demo') {
+                console.log('book a page');
+                const button = document.querySelector(".fserv-button-submit");
+                if (button) {
+                    button.addEventListener("click", function() {
+                        window.lintrk('click', { conversion_id: 6615508 });
+                        gtag('event', 'conversion', { 'send_to': 'AW-728181268/IJHnCL6C_58DEJTUnNsC' });
+                        console.log('going to track');
+                    });
+                } else {
+                    console.warn('.fserv-button-submit not found');
+                }
+            } else {
+                console.log('Not on the book a demo page');
+            }
           `}
         </Script>
         {/* <script type="text/javascript">
