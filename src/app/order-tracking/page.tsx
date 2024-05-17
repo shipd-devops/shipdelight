@@ -73,7 +73,7 @@ export default function Home() {
                                             <Space.Compact style={{ width: '100%' }}>
                                                 <Form.Item
                                                     name="id"
-                                                    rules={[{ required: true, message: 'Please enter your email!' }]}
+                                                    rules={[{ required: true, message: 'Please enter your tracking number!' }]}
                                                 >
                                                     <Input name="id" type='text' placeholder="Enter AWB tracking number" />
                                                 </Form.Item>
@@ -84,7 +84,7 @@ export default function Home() {
                                 </Flex>
                                 <Flex vertical gap={10}>
                                     <h5>Can’t find your AWB number or Order Id?</h5>
-                                    <p>We sent your AWB tracking number & order id via Email & SMS upon order confirmation while placing your order.</p>
+                                    <p>We have sent your AWB track order number and order ID via email and SMS upon confirming your order.</p>
                                 </Flex>
                             </Flex>
                             <div className="tracking-card--image">
