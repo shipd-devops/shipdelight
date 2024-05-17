@@ -279,26 +279,49 @@ export default function RootLayout({
         </noscript>
         
         {/* BUTTON TO SEND TO THANK YOU (FORM) */}
-        <Script type="text/javascript">
+        {/* <Script type="text/javascript">
           {`
            document.addEventListener('DOMContentLoaded', function() {
-            if (window.location.href === 'https://shipdelight.com/book-a-demo') {
-                console.log('book a page');
-                const button = document.querySelector(".fserv-button-submit");
-                if (button) {
-                    button.addEventListener("click", function() {
-                        window.lintrk('click', { conversion_id: 6615508 });
-                        gtag('event', 'conversion', { 'send_to': 'AW-728181268/IJHnCL6C_58DEJTUnNsC' });
-                        console.log('going to track');
-                    });
-                } else {
-                    console.warn('.fserv-button-submit not found');
-                }
-            } else {
-                console.log('Not on the book a demo page');
-            }
+              if (window.location.href === 'https://shipdelight.com/book-a-demo') {
+                  console.log('book a page');
+                  const button = document.querySelector(".fserv-button-submit");
+                  if (button) {
+                      button.addEventListener("click", function() {
+                          window.lintrk('click', { conversion_id: 6615508 });
+                          gtag('event', 'conversion', { 'send_to': 'AW-728181268/IJHnCL6C_58DEJTUnNsC' });
+                          console.log('going to track');
+                      });
+                  } else {
+                      console.warn('.fserv-button-submit not found');
+                  }
+              } else {
+                  console.log('Not on the book a demo page');
+              }
+          });
           `}
-        </Script>
+        </Script> */}
+        <Script
+          id="inline-script"
+          dangerouslySetInnerHTML={{
+            __html: `
+                if (window.location.href === 'https://shipdelight.com/book-a-demo') {
+                    console.log('book a page');
+                    const button = document.querySelector(".fserv-button-submit");
+                    if (button) {
+                        button.addEventListener("click", function() {
+                            window.lintrk('click', { conversion_id: 6615508 });
+                            gtag('event', 'conversion', { 'send_to': 'AW-728181268/IJHnCL6C_58DEJTUnNsC' });
+                            console.log('going to track');
+                        });
+                    } else {
+                        console.warn('.fserv-button-submit not found');
+                    }
+                } else {
+                    console.log('Not on the book a demo page');
+                }
+            `,
+          }}
+        />
         {/* <script type="text/javascript">
           {
             `
@@ -314,7 +337,7 @@ export default function RootLayout({
         <Script> 
           { `
               if (window.location.href == 'https://shipdelight.com/thankyou') {
-                gtag('event', 'conversion', { 'send_to': 'AW-728181268/IJHnCL6C_58DEJTUnNsC', 'value': 1.0, 'currency': 'INR' }); console.log('tracked');}
+                gtag('event', 'conversion', { 'send_to': 'AW-728181268/IJHnCL6C_58DEJTUnNsC', 'value': 1.0, 'currency': 'INR' }); }
           `}
         </Script>
         
