@@ -29,137 +29,137 @@ const Footer: FC = () => {
     };
     const items: CollapseProps['items'] = [
         {
-          key: '1',
-          label: 'Platforms',
-          children: 
-          <div className='footer-dropdown fourth'>
-            <div className="footer-dropdown--item">
-                <Link href={'/platforms/ilogix/d2c-delight'} className='header-dropdown--link'>
-                    <div><p className='title-main'>D2C Delight</p></div>
-                </Link>
-                <Link href={'/platforms/ilogix/retail-delight'} className='header-dropdown--link'>
-                    <div><p className='title-main'>Retail Delight</p></div>
-                </Link>
-                <Link href={'/platforms/elogix/erp-delight'} className='header-dropdown--link'>
-                    <div><p className='title-main'>ERP Delight</p></div>
-                </Link>
-                <Link href={'/platforms/elogix/biker-delight'} className='header-dropdown--link'>
-                    <div><p className='title-main'>Biker Delight</p></div>
-                </Link>
-                <Link href={'/platforms/ulogix'} className='header-dropdown--link'>
-                    <div><p className='title-main'>B2B2C Delight</p></div>
-                </Link>
-                <Link href={'/platforms/ulogix'} className='header-dropdown--link'>
-                    <div><p className='title-main'>Distribution Delight</p></div>
-                </Link>
-            </div>
-        </div>,
+            key: '1',
+            label: 'Platforms',
+            children:
+                <div className='footer-dropdown fourth'>
+                    <div className="footer-dropdown--item">
+                        <Link href={'/platforms/ilogix/d2c-delight'} className='header-dropdown--link'>
+                            <div><p className='title-main'>D2C Delight</p></div>
+                        </Link>
+                        <Link href={'/platforms/ilogix/retail-delight'} className='header-dropdown--link'>
+                            <div><p className='title-main'>Retail Delight</p></div>
+                        </Link>
+                        <Link href={'/platforms/elogix/erp-delight'} className='header-dropdown--link'>
+                            <div><p className='title-main'>ERP Delight</p></div>
+                        </Link>
+                        <Link href={'/platforms/elogix/biker-delight'} className='header-dropdown--link'>
+                            <div><p className='title-main'>Biker Delight</p></div>
+                        </Link>
+                        <Link href={'/platforms/ulogix'} className='header-dropdown--link'>
+                            <div><p className='title-main'>B2B2C Delight</p></div>
+                        </Link>
+                        <Link href={'/platforms/ulogix'} className='header-dropdown--link'>
+                            <div><p className='title-main'>Distribution Delight</p></div>
+                        </Link>
+                    </div>
+                </div>,
         },
         {
-          key: '2',
-          label: 'Solutions',
-          children: 
-          <div className='footer-dropdown fourth'>
-            <div className="footer-dropdown--item">
-                <Link href={'/solution/b2b-logistics'} className='header-dropdown--link'>
-                    <div><p className='title-main'>B2B Logistics</p></div>
-                </Link>
-                <Link href={'/solution/ecommerce-shipping'} className='header-dropdown--link'>
-                    <div><p className='title-main'>E- Commerce Shipping</p></div>
-                </Link>
-                <Link href={'/solution/ndr'} className='header-dropdown--link'>
-                    <div><p className='title-main'>NDRs</p></div>
-                </Link>
-                <Link href={'/solution/returns'} className='header-dropdown--link'>
-                    <div><p className='title-main'>Returns</p></div>
-                </Link>
-                <Link href={'/solution/exchanges'} className='header-dropdown--link'>
-                    <div><p className='title-main'>Exchange</p></div>
-                </Link>
-                <Link href={'/solution/refunds'} className='header-dropdown--link'>
-                    <div><p className='title-main'>Refunds</p></div>
-                </Link>
-                <Link href={'/solution/communications'} className='header-dropdown--link'>
-                    <div><p className='title-main'>Communication</p></div>
-                </Link>
-                <Link href={'/solution/omni-channel'} className='header-dropdown--link'>
-                    <div><p className='title-main'>Omni Channel</p></div>
-                </Link>
-                <Link href={'/solution/express-delivery'} className='header-dropdown--link'>
-                    <div><p className='title-main'>Express Delivery</p></div>
-                </Link>
-                <Link href={'/solution/cash-on-dilevry'} className='header-dropdown--link'>
-                    <div><p className='title-main'>Cash on Delivery</p></div>
-                </Link>
-                <Link href={'/solution/warehouse'} className='header-dropdown--link'>
-                    <div><p className='title-main'>Warehousing & Inventory</p></div>
-                </Link>
-                <Link href={'/solution/franchises'} className='header-dropdown--link'>
-                    <div><p className='title-main'>Franchises</p></div>
-                </Link>
-                <Link href={'/solution/biker-app'} className='header-dropdown--link'>
-                    <div><p className='title-main'>Biker Application</p></div>
-                </Link>
-                <Link href={'/solution/logistics-erp'} className='header-dropdown--link'>
-                    <div><p className='title-main'>Logistics ERP</p></div>
-                </Link>
-            </div>
-        </div>,
+            key: '2',
+            label: 'Solutions',
+            children:
+                <div className='footer-dropdown fourth'>
+                    <div className="footer-dropdown--item">
+                        <Link href={'/solution/b2b-logistics'} className='header-dropdown--link'>
+                            <div><p className='title-main'>B2B Logistics</p></div>
+                        </Link>
+                        <Link href={'/solution/ecommerce-shipping'} className='header-dropdown--link'>
+                            <div><p className='title-main'>E- Commerce Shipping</p></div>
+                        </Link>
+                        <Link href={'/solution/ndr'} className='header-dropdown--link'>
+                            <div><p className='title-main'>NDRs</p></div>
+                        </Link>
+                        <Link href={'/solution/returns'} className='header-dropdown--link'>
+                            <div><p className='title-main'>Returns</p></div>
+                        </Link>
+                        <Link href={'/solution/exchanges'} className='header-dropdown--link'>
+                            <div><p className='title-main'>Exchange</p></div>
+                        </Link>
+                        <Link href={'/solution/refunds'} className='header-dropdown--link'>
+                            <div><p className='title-main'>Refunds</p></div>
+                        </Link>
+                        <Link href={'/solution/communications'} className='header-dropdown--link'>
+                            <div><p className='title-main'>Communication</p></div>
+                        </Link>
+                        <Link href={'/solution/omni-channel'} className='header-dropdown--link'>
+                            <div><p className='title-main'>Omni Channel</p></div>
+                        </Link>
+                        <Link href={'/solution/express-delivery'} className='header-dropdown--link'>
+                            <div><p className='title-main'>Express Delivery</p></div>
+                        </Link>
+                        <Link href={'/solution/cash-on-dilevry'} className='header-dropdown--link'>
+                            <div><p className='title-main'>Cash on Delivery</p></div>
+                        </Link>
+                        <Link href={'/solution/warehouse'} className='header-dropdown--link'>
+                            <div><p className='title-main'>Warehousing & Inventory</p></div>
+                        </Link>
+                        <Link href={'/solution/franchises'} className='header-dropdown--link'>
+                            <div><p className='title-main'>Franchises</p></div>
+                        </Link>
+                        <Link href={'/solution/biker-app'} className='header-dropdown--link'>
+                            <div><p className='title-main'>Biker Application</p></div>
+                        </Link>
+                        <Link href={'/solution/logistics-erp'} className='header-dropdown--link'>
+                            <div><p className='title-main'>Logistics ERP</p></div>
+                        </Link>
+                    </div>
+                </div>,
         },
         {
-          key: '3',
-          label: 'Industry',
-          children: 
-          <div className='footer-dropdown fourth'>
-            <div className="footer-dropdown--item">
-                <Link href={'/industry/fashion'} className='header-dropdown--link'>
-                    <div><p className='title-main'>Fashion</p></div>
-                </Link>
-                <Link href={'/industry/electronics'} className='header-dropdown--link'>
-                    <div><p className='title-main'>Electronics</p></div>
-                </Link>
-                <Link href={'/industry/health-care'} className='header-dropdown--link'>
-                    <div><p className='title-main'>Health & Pharma</p></div>
-                </Link>
-                <Link href={'/industry/home-and-decor'} className='header-dropdown--link'>
-                    <div><p className='title-main'>Home & Décor</p></div>
-                </Link>
-                <Link href={'/industry/food-and-beverage'} className='header-dropdown--link'>
-                    <div><p className='title-main'>Foods & Beverages</p></div>
-                </Link>
-                <Link href={'/industry/sports'} className='header-dropdown--link'>
-                    <div><p className='title-main'>Sports & Utilities</p></div>
-                </Link>
-            </div>
-        </div>,
+            key: '3',
+            label: 'Industry',
+            children:
+                <div className='footer-dropdown fourth'>
+                    <div className="footer-dropdown--item">
+                        <Link href={'/industry/fashion'} className='header-dropdown--link'>
+                            <div><p className='title-main'>Fashion</p></div>
+                        </Link>
+                        <Link href={'/industry/electronics'} className='header-dropdown--link'>
+                            <div><p className='title-main'>Electronics</p></div>
+                        </Link>
+                        <Link href={'/industry/health-care'} className='header-dropdown--link'>
+                            <div><p className='title-main'>Health & Pharma</p></div>
+                        </Link>
+                        <Link href={'/industry/home-and-decor'} className='header-dropdown--link'>
+                            <div><p className='title-main'>Home & Décor</p></div>
+                        </Link>
+                        <Link href={'/industry/food-and-beverage'} className='header-dropdown--link'>
+                            <div><p className='title-main'>Foods & Beverages</p></div>
+                        </Link>
+                        <Link href={'/industry/sports'} className='header-dropdown--link'>
+                            <div><p className='title-main'>Sports & Utilities</p></div>
+                        </Link>
+                    </div>
+                </div>,
         },
         {
             key: '4',
             label: 'Company',
-            children: 
-            <div className='footer-dropdown fourth'>
-                <div className="footer-dropdown--item">
-                    <Link href={'/about'} className='header-dropdown--link'>
-                        <div>
-                            <p className='title-main'>About</p>
-                        </div>
-                    </Link>
-                    <Link href={'/career'} className='header-dropdown--link'>
-                        <div>
-                            <p className='title-main'>Career</p>
-                        </div>
-                    </Link>
-                    <Link href={'/contact-us'} className='header-dropdown--link'>
-                        <div>
-                            <p className='title-main'>Contact Us</p>
-                        </div>
-                    </Link>
+            children:
+                <div className='footer-dropdown fourth'>
+                    <div className="footer-dropdown--item">
+                        <Link href={'/about'} className='header-dropdown--link'>
+                            <div>
+                                <p className='title-main'>About</p>
+                            </div>
+                        </Link>
+                        <Link href={'/career'} className='header-dropdown--link'>
+                            <div>
+                                <p className='title-main'>Career</p>
+                            </div>
+                        </Link>
+                        <Link href={'/contact-us'} className='header-dropdown--link'>
+                            <div>
+                                <p className='title-main'>Contact Us</p>
+                            </div>
+                        </Link>
+                    </div>
                 </div>
-            </div>
         }
     ];
     return (
-       <>
+        <>
             <footer>
                 <div className="footer--top">
                     <div className="footer--container">
@@ -179,7 +179,9 @@ const Footer: FC = () => {
                                         <Form.Item
                                             name="number"
                                             style={{width: '100%', marginBottom: '0'}}
-                                            rules={[{ required: true, message: 'Please enter your number!' }]}
+                                            rules={[{ required: true, message: 'Please enter your number!' },
+                                            { pattern: /^[6-9]\d{9}$/, message: 'Enter a valid 10-digit number.' }
+                                            ]}
                                         >
                                             <Input prefix="+91" type='number' minLength={10} placeholder="XXXXX XXXXX" />
                                         </Form.Item>
@@ -254,7 +256,7 @@ const Footer: FC = () => {
                         </div>
                     </div>
                     <div className="footer--container">
-                        <p>Copyright 2024 @ Shipdelight Logistics Technologies Pvt Ltd. All rights reserved.</p>
+                        <p>Copyright {new Date().getFullYear()} @ Shipdelight Logistics Technologies Pvt Ltd. All rights reserved.</p>
                         <ul>
                             <li><a target='_blank' href={'https://in.linkedin.com/company/shipdelight'}><LinkedIn /></a></li>
                             <li><a target='_blank' href={'https://www.instagram.com/shipdelight/'}><InstagramIcon/></a></li>
@@ -263,7 +265,7 @@ const Footer: FC = () => {
                     </div>
                 </div>
             </footer>
-       </>
+        </>
     )
 }
 
