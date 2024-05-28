@@ -149,7 +149,7 @@ export default function Home() {
                                         <Form.Item<FieldType>
                                             name="number"
                                             rules={[{ required: true, message: 'Please enter your phone number!' },
-                                            { pattern: /^[6-9]\d{9}$/, message: 'Enter a valid 10-digit number.' }, ]}
+                                            { pattern: /^[6-9]\d{9}$/, message: 'Enter a valid 10-digit number.' } ]}
                                             hasFeedback
                                         >
                                             <Input type='number' placeholder='Phone number' minLength={10} />
