@@ -151,7 +151,7 @@ const page = () => {
                             <h2>Explore More Logistics Solutions from <span> ShipDelight </span></h2>
                             <div className="search-bar book-demo">
                                 <Space.Compact style={{ width: '100%' }}>
-                                    <Input type='email' placeholder="Your work email address" />
+                                    <Input type='email' placeholder="Your company email address" />
                                     <Button type="primary" className="btn-main">Book a Demo</Button>
                                 </Space.Compact>
                             </div>

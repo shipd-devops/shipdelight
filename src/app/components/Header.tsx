@@ -1,12 +1,11 @@
 'use client'
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC, useState, useEffect, useContext } from 'react'
+import { GlobalContext } from "@/app/context/srore";
 import { useRouter } from "next/navigation";
 import Link from 'next/link';
 import { usePathname } from "next/navigation"
 import '../styles/header.css'
 import { Button, Flex } from 'antd'
-import type { CollapseProps } from 'antd'
-import { Collapse } from 'antd'
 // IMAGES
 import LogoImage from '../../../public/images/logo.svg'
 import ChevrotDown from '../../../public/images/chevrot-down.svg'
@@ -29,6 +28,8 @@ const Header: FC = () => {
     const pathname = usePathname();
     const isPlatform = pathname.includes("platforms");
     const isD2CLanding = pathname.includes("d2c-landing-page");
+    const isNormalLanding = pathname.includes("electronics-industry");
+    const isNormalLanding2 = pathname.includes("health-and-supplements-industry");
     const isD2cCTA = pathname.includes("get-in-touch-d2c");
     const router = useRouter();
     useEffect(() => {
@@ -42,15 +43,22 @@ const Header: FC = () => {
         };
     }, [prevScrollPos]);
     const [headerStep, setHeaderStep] = useState(0);
+    const [headerStepLastOpen, setHeaderStepLastOpen] = useState(0);
+    const { md, setMd, setShake } = useContext(GlobalContext);
     useEffect(() => {
         setOpenDrop(-1)
         setBurgerOpen(false);
-        setHeaderStep(0)
+        setHeaderStep(0);
     }, [pathname]);
+    useEffect(() => {
+        if (md) {
+            setBurgerOpen(true);
+            setHeaderStep(headerStepLastOpen)
+        }
+    }, [md]);
+
+
     const [burgerOpen, setBurgerOpen] = useState(false);
-    const onChange = (key: string | string[]) => {
-        console.log(key);
-    };
     const scrollToTop = () => {
         window.scrollTo({
           top: 0,
@@ -261,7 +269,12 @@ const Header: FC = () => {
     const aboutPage = pathname.includes("about");
     const careerPage = pathname.includes("career");
     const contactPages = pathname.includes("contact-us");
-
+    const handleShake = () => {
+        setShake(true);
+        setTimeout(() => {
+            setShake(false);
+        }, 300);
+    }
     return (
         <>
             {
@@ -276,6 +289,17 @@ const Header: FC = () => {
                         </Button>
                     </div>
                 </header> :
+                isNormalLanding || isNormalLanding2 ?
+                <header className='landing-page'>
+                    <div className="container header--container">
+                        <Link href={'/'} className={'logo-head'}>
+                            <LogoImage />
+                        </Link>
+                        <Button type='primary' className='btn-main head-btn' style={{display: 'flex !important'}} onClick={()=>{router.push(`/${isNormalLanding2  ? 'health-and-supplements-industry' : 'electronics-industry'}/#Contact`); handleShake();}}>
+                            Get In Touch
+                        </Button>
+                    </div>
+                </header> : 
                 <header className={`sticky ${isD2cCTA ? 'd-none' : ''} ${openDrop >= 0 ? 'open-drop' : ''}`}>
                     <div className="header--container">
                         { headerStep === 1 ?
@@ -340,12 +364,11 @@ const Header: FC = () => {
                             </Button> : ''
                         }
                         {
-                            headerStep === 0 ? 
-                            <div onClick={() => {setBurgerOpen(!burgerOpen); setHeaderStep(0);}} className={`burger ${burgerOpen ? 'is-active' : ''}`} id="burger">
+                            <div onClick={() => {setBurgerOpen(!burgerOpen); setHeaderStep(burgerOpen ? 0 : headerStepLastOpen); setMd(false)}} className={`burger ${burgerOpen ? 'is-active' : ''}`} id="burger">
                                 <span className="burger-line"></span>
                                 <span className="burger-line"></span>
                                 <span className="burger-line"></span>
-                            </div> : ''
+                            </div> 
                         }
                         <div className={`nav-list-mobile ${burgerOpen ? 'open' : ''}`}>
                             {/* <Collapse items={items} defaultActiveKey={['1']} onChange={onChange} /> */}
@@ -376,18 +399,18 @@ const Header: FC = () => {
                                             <Chevron />
                                         </Flex>
                                     </div>
-                                    <div className="nav-list-mobile--item">
-                                        <Link href={'/pricing'} className="header--link">
+                                    <div className="nav-list-mobile--item" onClick={()=>{setBurgerOpen(false); setHeaderStepLastOpen(0); setHeaderStep(0)}}>
+                                        <Link href={'/pricing'} className={pathname.includes("pricing") ? "header--link active" : "header--link"}>
                                             Pricing
                                         </Link>
                                     </div>
-                                    <div className="nav-list-mobile--item">
-                                        <Link href={'/blogs'} className="header--link">
+                                    <div className="nav-list-mobile--item" onClick={()=>{setBurgerOpen(false); setHeaderStepLastOpen(0); setHeaderStep(0)}}>
+                                        <Link href={'/blogs'} className={pathname.includes("blogs") ? "header--link active" : "header--link"}>
                                             Resources
                                         </Link>
                                     </div>
-                                    <div className="nav-list-mobile--item">
-                                        <Link href={'/order-tracking'} className="header--link">
+                                    <div className="nav-list-mobile--item" onClick={()=>{setBurgerOpen(false); setHeaderStepLastOpen(0); setHeaderStep(0)}}>
+                                        <Link href={'/order-tracking'} className={pathname.includes("order-tracking") ? "header--link active" : "header--link"}>
                                             Tracking
                                         </Link>
                                     </div>
@@ -404,15 +427,17 @@ const Header: FC = () => {
                                                     <div>
                                                         <p className='title-big'>{item.title}</p>
                                                         {item.links.map((link, indexInner)=>(
-                                                            <Link href={link.link} className='header-dropdown--link' key={indexInner}>
-                                                                <div>
-                                                                    <Flex align='center' gap={12}>
-                                                                        <p className='title-main'>{link.title}</p>
-                                                                        {link.tag ? <span className='popular'>{link.tag}</span> : ''}
-                                                                    </Flex>
-                                                                    {link.text ? <p>{link.text}</p> : ''}
-                                                                </div>
-                                                            </Link>
+                                                            <div key={indexInner} onClick={()=>{setBurgerOpen(false); setHeaderStepLastOpen(1); setHeaderStep(0)}}>
+                                                                <Link href={link.link} className={`header-dropdown--link ${pathname.includes(link.link) ? 'active' : ''}`}>
+                                                                    <div>
+                                                                        <Flex align='center' gap={12}>
+                                                                            <p className='title-main'>{link.title}</p>
+                                                                            {link.tag ? <span className='popular'>{link.tag}</span> : ''}
+                                                                        </Flex>
+                                                                        {link.text ? <p>{link.text}</p> : ''}
+                                                                    </div>
+                                                                </Link>
+                                                            </div>
                                                         ))}
                                                     </div>
                                                 </Flex>
@@ -431,13 +456,15 @@ const Header: FC = () => {
                                                     <div>
                                                         <p className='title-big'>{item.title}</p>
                                                         {item.links.map((link, indexInner)=>(
-                                                            <Link href={link.link} className='header-dropdown--link' key={indexInner}>
-                                                                <div>
-                                                                    <Flex align='center' gap={12}>
-                                                                        <p className='title-main'>{link.title}</p>
-                                                                    </Flex>
-                                                                </div>
-                                                            </Link>
+                                                            <div key={indexInner} onClick={()=>{setBurgerOpen(false); setHeaderStepLastOpen(2); setHeaderStep(0)}}>
+                                                                <Link href={link.link} className={`header-dropdown--link ${pathname.includes(link.link) ? 'active' : ''}`}>
+                                                                    <div>
+                                                                        <Flex align='center' gap={12}>
+                                                                            <p className='title-main'>{link.title}</p>
+                                                                        </Flex>
+                                                                    </div>
+                                                                </Link>
+                                                            </div>
                                                         ))}
                                                     </div>
                                                 </Flex>
@@ -455,13 +482,15 @@ const Header: FC = () => {
                                                 <div>
                                                     <p className='title-big'>{comapaniesLink.title}</p>
                                                     {comapaniesLink.links.map((link, indexInner)=>(
-                                                        <Link href={link.link} className='header-dropdown--link' key={indexInner}>
-                                                            <div>
-                                                                <Flex align='center' gap={12}>
-                                                                    <p className='title-main'>{link.title}</p>
-                                                                </Flex>
-                                                            </div>
-                                                        </Link>
+                                                        <div key={indexInner} onClick={()=>{setBurgerOpen(false); setHeaderStepLastOpen(4); setHeaderStep(0)}}>
+                                                            <Link href={link.link} className={`header-dropdown--link ${pathname.includes(link.link) ? 'active' : ''}`}>
+                                                                <div>
+                                                                    <Flex align='center' gap={12}>
+                                                                        <p className='title-main'>{link.title}</p>
+                                                                    </Flex>
+                                                                </div>
+                                                            </Link>
+                                                        </div>
                                                     ))}
                                                 </div>
                                             </Flex>
@@ -478,22 +507,26 @@ const Header: FC = () => {
                                                 <div>
                                                     <p className='title-big'>{industriesLink.title}</p>
                                                     {industriesLink.links.map((link, indexInner)=>(
-                                                        <Link href={link.link} className='header-dropdown--link' key={indexInner}>
-                                                            <div>
-                                                                <Flex align='center' gap={12}>
-                                                                    <p className='title-main'>{link.title}</p>
-                                                                </Flex>
-                                                            </div>
-                                                        </Link>
+                                                        <div key={indexInner} onClick={()=>{setBurgerOpen(false); setHeaderStepLastOpen(3); setHeaderStep(0)}}>
+                                                            <Link href={link.link} className={`header-dropdown--link ${pathname.includes(link.link) ? 'active' : ''}`}>
+                                                                <div>
+                                                                    <Flex align='center' gap={12}>
+                                                                        <p className='title-main'>{link.title}</p>
+                                                                    </Flex>
+                                                                </div>
+                                                            </Link>
+                                                        </div>
                                                     ))}
                                                     {industriesLink.links2.map((link, indexInner)=>(
-                                                        <Link href={link.link} className='header-dropdown--link' key={indexInner}>
-                                                            <div>
-                                                                <Flex align='center' gap={12}>
-                                                                    <p className='title-main'>{link.title}</p>
-                                                                </Flex>
-                                                            </div>
-                                                        </Link>
+                                                        <div key={indexInner} onClick={()=>{setBurgerOpen(false); setHeaderStepLastOpen(3); setHeaderStep(0)}}>
+                                                            <Link href={link.link} className={`header-dropdown--link ${pathname.includes(link.link) ? 'active' : ''}`}>
+                                                                <div>
+                                                                    <Flex align='center' gap={12}>
+                                                                        <p className='title-main'>{link.title}</p>
+                                                                    </Flex>
+                                                                </div>
+                                                            </Link>
+                                                        </div>
                                                     ))}
                                                 </div>
                                             </Flex>
@@ -648,78 +681,6 @@ const Header: FC = () => {
                         <div className='header--overlay'>
                             <span onClick={()=>{setOpenDrop(-1)}}></span>
                             <div className='header-dropdown fourth'>
-                                {/* <div className="header-dropdown--item">
-                                    <div>
-                                        <div className="svg-div">
-                                            <IlogixIcon />
-                                        </div>
-                                        <p className='title-big'>Resource</p>
-                                        <p>Lorem ipsum dolor sit amet consectetur. Vulputate leo magna dolor</p>
-                                    </div>
-                                    <div>
-                                        <Link href={'/blogs'} className='header-dropdown--link'>
-                                            <div>
-                                                <p className='title-main'>Blogs</p>
-                                            </div>
-                                        </Link>
-                                        <Link href={'/reports'} className='header-dropdown--link'>
-                                            <div>
-                                                <p className='title-main'>Reports</p>
-                                            </div>
-                                        </Link>
-                                        <Link href={'/case-studies'} className='header-dropdown--link'>
-                                            <div>
-                                                <p className='title-main'>Case Studies</p>
-                                            </div>
-                                        </Link>
-                                        <Link href={'/events'} className='header-dropdown--link'>
-                                            <div>
-                                                <p className='title-main'>Events & Webinars</p>
-                                            </div>
-                                        </Link>
-                                        <Link href={'/'} className='header-dropdown--link'>
-                                            <div>
-                                                <p className='title-main'>Help & Support</p>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                </div>
-                                <div className="header-dropdown--item">
-                                    <div>
-                                        <div className="svg-div">
-                                            <IlogixIcon />
-                                        </div>
-                                        <p className='title-big'>Company</p>
-                                        <p>Lorem ipsum dolor sit amet consectetur. Vulputate leo magna dolor</p>
-                                    </div>
-                                    <div>
-                                        <Link href={'/about'} className='header-dropdown--link'>
-                                            <div>
-                                                <p className='title-main'>About</p>
-                                            </div>
-                                        </Link>
-                                        <Link href={'/news'} className='header-dropdown--link'>
-                                            <div>
-                                                <p className='title-main'>News & PRs</p>
-                                            </div>
-                                        </Link>
-                                        <Link href={'/partners'} className='header-dropdown--link'>
-                                            <div>
-                                                <p className='title-main'>Partners</p>
-                                            </div>
-                                        </Link>
-                                        <Link href={'/career'} className='header-dropdown--link'>
-                                            <div>
-                                                <p className='title-main'>Careers</p>
-                                            </div>
-                                        </Link>
-                                        <Link href={'/contact-us'} className='header-dropdown--link'>
-                                            <div>
-                                                <p className='title-main'>Contact Us</p>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                </div> */}
                                 <div className="header-dropdown--item">
                                     <div>
                                         <div className="svg-div">

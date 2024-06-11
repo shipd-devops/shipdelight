@@ -4,20 +4,24 @@ import React, { FC } from 'react'
 
 interface Props {
     cards: any;
+    noImage?: boolean;
 }
-const SmallCard: FC<Props> = ({ cards }) => {
+const SmallCard: FC<Props> = ({ cards, noImage }) => {
     return (
        <>
             <div className="small-cards">
                 {cards.map((data: any, index:any) => (
-                    <div className="small-card--item" key={index}>
+                    <div className={noImage ? "small-card--item no-image" : "small-card--item"} key={index}>
                         <div>
-                            <h4>{data.title}</h4>
+                            {noImage ? <h3>{data.title}</h3> : <h4>{data.title}</h4>}
                             <p>{data.des}</p>
                         </div>
-                        <div className="small-card--item--img">
-                            <Image src={data.image} alt='image' />
-                        </div>
+                        {
+                            data.image &&
+                            <div className="small-card--item--img">
+                                <Image src={data.image} alt='image' />
+                            </div>
+                        }
                     </div>
                 ))}
             </div>

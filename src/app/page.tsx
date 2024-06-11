@@ -246,7 +246,7 @@ export default function Home() {
                                         name="email"
                                         rules={[{ required: true, message: 'Please enter your email!' }]}
                                     >
-                                        <Input name="email" type='email' placeholder="Your work email address" />
+                                        <Input name="email" type='email' placeholder="Your company email address" />
                                     </Form.Item>
                                     <Button htmlType="submit" type="primary" className="btn-main">Get Started</Button>
                                 </Space.Compact>

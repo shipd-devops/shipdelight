@@ -145,7 +145,7 @@ const page = () => {
                                 rules={[{ required: true, message: 'Please enter your email!' }]}
                                 hasFeedback
                             >
-                                <Input type='email' placeholder='Email' />
+                                <Input type='email' placeholder='Company Email' />
                             </Form.Item>
                             <Form.Item<FieldType>
                                 name="number"

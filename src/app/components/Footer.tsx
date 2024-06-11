@@ -3,8 +3,9 @@ import React, { FC, useState, useEffect } from 'react'
 import { useRouter } from "next/navigation"
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from "next/navigation"
 import '../styles/footer.css'
-import { Button, Input, Flex, Form, Collapse } from 'antd';
+import { Button, Input, Flex, Form, Collapse, Space } from 'antd';
 // IMAGES
 import LinkedIn from '../../../public/images/linkedin.svg'
 import InstagramIcon from '../../../public/images/instagram.svg'
@@ -27,6 +28,8 @@ const Footer: FC = () => {
     const onChange = (key: string | string[]) => {
         console.log(key);
     };
+    const pathname = usePathname();
+    const isNormalLanding = pathname.includes("electronics-industry");
     const items: CollapseProps['items'] = [
         {
             key: '1',
@@ -165,8 +168,17 @@ const Footer: FC = () => {
                     <div className="footer--container">
                         <div className="footer--cta">
                             <div className="footer--cta--content">
-                                <h2>One step away from solving logistic puzzles of your brand</h2>
-                                <p>Let’s connect to understand how we can help you to solve puzzle</p>
+                                {
+                                    isNormalLanding ? 
+                                    <>
+                                        <h2>Ready to Elevate Your Electronics Brand?</h2>
+                                        <p>Join the revolution in quick commerce with ShipDelight and give your customers the speed and reliability they demand. Contact us today to learn more about how we can transform your logistics operations and help you deliver excellence.</p>
+                                    </> :
+                                    <>
+                                        <h2>One step away from solving logistic puzzles of your brand</h2>
+                                        <p>Let’s connect to understand how we can help you to solve puzzle</p>
+                                    </>
+                                }
                                 <Form onFinish={handleSendEmail}>
                                     <Flex gap={10}>
                                         <Form.Item

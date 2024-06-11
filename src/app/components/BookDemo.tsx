@@ -21,7 +21,7 @@ const BookDemo: FC<Props> = ({ data }) => {
                     name="email"
                     rules={[{ required: true, message: 'Please enter your email!' }]}
                 >
-                    <Input name="email" type='email' placeholder="Your work email address" />
+                    <Input name="email" type='Email' placeholder="Your Company email address" />
                 </Form.Item>
                 <Button htmlType="submit" type="primary" className="btn-main">Book a Demo</Button>
             </Space.Compact>

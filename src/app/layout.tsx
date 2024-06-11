@@ -8,7 +8,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { usePathname } from 'next/navigation'
 import Script from 'next/script'
-
+import { GlobalContextProvider } from "./context/srore";
 
   const inter = Inter({ subsets: ["latin"] });
 
@@ -186,6 +186,16 @@ export default function RootLayout({
           title: "Exclusive D2C Insider Member Offer by ShipDelight: Optimize Your Logistics Today",
           description: "Join ShipDelight's D2C Insider Member Offer and optimize up to 3000 orders seamlessly with iLogix Curated Pilot and enable 5 courier partners with comprehensive APIs. Don't miss out, seize this opportunity to elevate your D2C business with ShipDelight!",
         };
+      case "/electronics-industry":
+        return {
+          title: "Quick Commerce Solutions for the Electronics Industry",
+          description: "Discover ShipDelight's quick commerce solutions tailored for the electronics industry. Enjoy same-day and next-day delivery, multi-location pickups, and integrated dashboards for efficient logistics management. Partner with ShipDelight and deliver excellence to your customers.",
+        };
+      case "/health-and-supplements-industry":
+        return {
+          title: "Quick Commerce Solutions for the Health and Supplements Industry",
+          description: "Transform your health and supplements logistics with ShipDelight's quick commerce solutions. Enjoy same-day and next-day delivery, multi-location pickups, and integrated dashboards for efficient operations. Partner with ShipDelight for speed, reliability, and customer satisfaction.",
+        };
       default:
         return {
           title: "ShipDelight",
@@ -351,9 +361,11 @@ export default function RootLayout({
         <body className={inter.className}>
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CXK8T3"
         height="0" width="0" style={{ display:"none", visibility:"hidden"}}></iframe></noscript>
+        <GlobalContextProvider>
           <Header/>
           {children}
           <Footer />
+        </GlobalContextProvider>
         </body>
       </AntdRegistry>
     </html>

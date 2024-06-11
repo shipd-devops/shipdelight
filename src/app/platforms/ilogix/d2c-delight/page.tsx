@@ -1,8 +1,9 @@
 'use client'
-import { useState } from "react";
+import React, { useContext, useState } from 'react';
+import { GlobalContext } from "@/app/context/srore";
 import Image from "next/image";
 import Link from "next/link";
-import { Button, Collapse, Space, Input } from 'antd';
+import { Button, Collapse, Flex } from 'antd';
 import type { CollapseProps } from 'antd';
 import { useRouter } from "next/navigation";
 import BrandList from "@/app/components/BrandsList";
@@ -19,20 +20,6 @@ import WhiteGuide from '../../../../../public/images/white-guide.webp'
 import ThreeDotsSvg from '../../../../../public/images/three-dots.svg'
 import D2c from '../../../../../public/images/d2c-interagte.webp'
 import D2cM from '../../../../../public/images/d2c-interagte-mobile.webp'
-import Star from '../../../../../public/images/star-red.svg'
-import TruckIcon from '../../../../../public/images/integration-icon.svg'
-import TruckIcon1 from '../../../../../public/images/integration-icon-2.svg'
-import TruckIcon2 from '../../../../../public/images/integration-icon-3.svg'
-import SemiCircle from '../../../../../public/images/two-semi-circle.svg'
-import SemiCircleSmall from '../../../../../public/images/small-semi-circle.svg'
-import GuidesMerge from '../../../../../public/images/guides-merge.svg'
-import IntegrateIcon from '../../../../../public/images/integrate-main-icon.svg'
-import SocialIcon from '../../../../../public/images/social-icon-1.svg'
-import SocialIcon2 from '../../../../../public/images/social-icon-2.svg'
-import SocialIcon3 from '../../../../../public/images/social-icon-3.svg'
-import SocialIcon4 from '../../../../../public/images/social-icon-4.svg'
-import SocialIcon5 from '../../../../../public/images/social-icon-5.svg'
-import SocialIcon6 from '../../../../../public/images/social-icon-6.svg'
 import PlusImage from '../../../../../public/images/plus.svg'
 import MinusImage from '../../../../../public/images/minus.svg'
 import WhatLogix from '../../../../../public/images/what-logix.webp'
@@ -49,8 +36,7 @@ import SolutionImage3 from '../../../../../public/images/solution-left-4.webp'
 import SolutionImage4 from '../../../../../public/images/solution-left-5.webp'
 import SolutionImage5 from '../../../../../public/images/solution-left-6.webp'
 import AnnouncePersonImage from '../../../../../public/images/announce-person.webp'
-import WhatLogixImage from '../../../../../public/images/what-guides-logix.webp'
-import WhatLogixImage2 from '../../../../../public/images/guies-logix-2.webp'
+import BackArrow from '../../../../../public/images/back-arrow.svg'
 
 
 export default function Home() {
@@ -174,10 +160,28 @@ export default function Home() {
     const handleChange = (key: string | string[]) => {
         console.log(key);
     };
+    const { md, setMd } = useContext(GlobalContext);
+    const handleMenu = (e: any) => {
+        e.preventDefault()
+        setMd(true);
+    }
     return (
         <main>
+            {/* <div className="container">
+                <Flex align="center" gap={6} style={{padding : '10px 0 16px'}}>
+                    <BackArrow />
+                    <p>Back</p>
+                </Flex>
+            </div> */}
             <section className="gradient-section platform-banner">
                 <div className="container">
+                    {/* <Flex gap={4} align="center" style={{margin: '-24px 0 24px'}}>
+                        <Link className="bread-list" href={'/'}>Home</Link>
+                        <p>{'/'}</p>
+                        <Link onClick={handleMenu} className="bread-list" href={'/'}>Platforms</Link>
+                        <p>{'/'}</p>
+                        <p className="bread-list">D2C Delight</p>
+                    </Flex> */}
                     <Ilogix />
                     <h1 className="small">Take Control of Your Brand's Destiny with ShipDelight D2C Delight.</h1>
                     <BookDemo data={true} />
