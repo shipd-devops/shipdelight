@@ -230,7 +230,7 @@ export default function Home() {
                     <Flex className='challenges-container left' align="center">
                         <div>
                             <h2 style={{fontWeight: 700}}>Challenges with <span>Quick Commerce Marketplaces</span></h2>
-                            <p>Consumers now view health supplements like medicines. Quick commerce platforms are reshaping expectations, increasing demand for faster health product deliveries.</p>
+                            <p>Quick Commerce platforms offering electronics items have started to change consumer expectations and buying behaviors. With the rise of instant gratification in online shopping, consumers now demand faster deliveries, and time of delivery has become an important factor in their buying decision.</p>
                             <Flex vertical className="challenges">
                                 {challenges.map((item, index)=>(
                                     <Flex key={index}>
