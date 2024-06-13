@@ -158,6 +158,27 @@ export default function Home() {
             setShake(false);
         }, 300);
     }
+    const emailDomainValidator = (rule: any, value: any) => {
+        if (!value) {
+          return Promise.resolve(); 
+        }
+        const personalEmailDomainsPatterns = [
+            /@gmail\./i,
+            /@yahoo\./i,
+            /@outlook\./i,
+            /@hotmail\./i,
+            /@aol\./i,
+            /@icloud\./i,
+            /@live\./i,
+            /@msn\./i,
+            /@protonmail\./i,
+        ];
+        const isPersonalEmail = personalEmailDomainsPatterns.some(pattern => pattern.test(value));
+        if (isPersonalEmail) {
+            return Promise.reject('Personal email addresses are not allowed.');
+        }
+        return Promise.resolve();
+    };
     return (
         <main>
             <section className="solution gradient-2 normal-section dtc-home">
@@ -184,7 +205,11 @@ export default function Home() {
                                 </Form.Item>
                                 <Form.Item<FieldType>
                                     name="mail"
-                                    rules={[{ required: true, message: 'Please enter your email!' }]}
+                                    rules={[
+                                        { required: true, message: 'Please enter your email!' },
+                                        { type: 'email', message: 'Please enter a valid email!' },
+                                        { validator: emailDomainValidator },
+                                    ]}
                                     hasFeedback
                                 >
                                     <Input type='email' placeholder='Official Company Email' />
