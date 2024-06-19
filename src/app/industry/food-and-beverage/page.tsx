@@ -36,12 +36,12 @@ const page = () => {
     ];
     const list = [
         {
-            title: 'Elevating Healthcare Logistics with',
+            title: 'Supply Chain Visibility',
             text: 'ShipDelight offers supply chain visibility tools that allow food and beverage businesses to track the movement of their products from production to delivery.'
         },
         {
             title: 'Risk Management',
-            text: "By offering contingency planning, alternative routing options, and proactive risk mitigation strategies, ShipDelight helps businesses minimize the impact of unforeseen events"
+            text: "By offering contingency planning, alternative routing options, and proactive risk mitigation strategies, ShipDelight helps businesses minimize the impact of unforeseen events and maintain business continuity."
         },
         {
             title: 'Seasonal Demand Management',
@@ -51,12 +51,12 @@ const page = () => {
     const cards = [
         {
             title: 'Distribution Network',
-            des: "With strategically located warehouses and distribution centers, ShipDelight ensures timely and efficient delivery of products, even to remote and rural areas",
+            des: "With strategically located warehouses and distribution centers, ShipDelight ensures timely and efficient delivery of products, even to remote and rural areas, expanding market reach and accessibility.",
             image: ValueImg
         },
         {
             title: 'Global Standard of FEFO',
-            des: "By prioritizing the dispatch of products according to the global standard of First Expired, First Out (FEFO), we help businesses reduce the risk of expired inventory and maintain product quality",
+            des: "By prioritizing the dispatch of products according to the global standard of First Expired, First Out (FEFO), we help businesses reduce the risk of expired inventory and maintain product quality throughout the supply chain.",
             image: ValueImg2
         },
         {
@@ -113,7 +113,7 @@ const page = () => {
                     <div className="banner-info-section full">
                         <div>
                             <h6>Why Food & Beverage Industry</h6>
-                            <h2>Why Logistics is Essential for the <span>Food & Beverage?</span></h2>
+                            <h2>Why Logistics is Essential for the <span>Food & Beverage Industry?</span></h2>
                         </div>
                     </div>
                     <StateCard stats={stats} card></StateCard>
@@ -122,7 +122,7 @@ const page = () => {
             <section className="section-yellow normal-section info-product" id="overviewProduct">
                 <div className="container small">
                     <h6>Role of Shipdelight</h6>
-                    <h2>Elevating Healthcare Logistics with <span>Shipdelight</span></h2>
+                    <h2>Elevating Food & Beverage Logistics with <span>Shipdelight</span></h2>
                     <div className='info-product--info'>
                         <div className="info-product--detail-list">
                             {list.map((item, index) => (
