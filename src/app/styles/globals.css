@@ -1183,6 +1183,10 @@ h2.purpose-h2 + p  {
 .tracklist--item:last-child:after {
   display: none;
 }
+.half-width {
+  width: 810px;
+  max-width: 100%;
+}
 .announce-div p {
   color: #000;
   text-align: center;
@@ -1436,6 +1440,9 @@ img {
   z-index: 1;
   top: 60%;
   transform: translateY(-50%);
+}
+.info-product--image img.platform.new {
+  right: calc(-6vw);
 }
 .info-product--container.small {
   justify-content: space-between;

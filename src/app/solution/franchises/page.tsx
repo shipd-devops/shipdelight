@@ -166,19 +166,6 @@ const page = () => {
                     </div>
                 </div>
             </section>
-            <section className="solution gradient-section common-section b-0">
-                <div className="container">
-                    <div className='banner-info-section full center footer'>
-                        <Flex vertical align='center'>
-                            <h2>Explore More Logistics Solutions from <span> ShipDelight </span></h2>
-                            <BookDemo data={true} />
-                        </Flex>
-                        <div className='solution-footer-img'>
-                            <Image src={BottomImg} alt="bottom image" className="banner-img" />
-                        </div>
-                    </div>
-                </div>
-            </section>
         </main>
     )
 }

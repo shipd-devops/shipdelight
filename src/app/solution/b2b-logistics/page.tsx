@@ -72,7 +72,7 @@ const page = () => {
         },
         {
             title: 'Reduced Risk of Stockouts and Delays',
-            text: "ShipDelight seamlessly integrates with existing enterprise resource planning (ERP) and Warehouse Management Systems (WMS), enabling businesses to synchronize order and delivery data across their organization."
+            text: "ShipDelight's advanced tracking systems and proactive communication enable businesses to monitor shipments in real time and address any potential issues before they escalate, reducing the risk of lost sales and customer dissatisfaction."
         },
         {
             title: 'Unified View of ERP and Warehouse',

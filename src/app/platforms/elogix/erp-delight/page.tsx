@@ -197,7 +197,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="info-product--image">
-                            <Image src={WhatLogix} alt="Platform" className="platform" />
+                            <Image src={WhatLogix} alt="Platform" className="platform new" />
                         </div>
                     </div>
                 </div>

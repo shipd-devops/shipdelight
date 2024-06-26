@@ -104,7 +104,7 @@ const page = () => {
         },
         {
             title: 'Transparency in Terms of Earnings',
-            text: "By offering COD as a payment option, brands can tap into new customer segments in tier 2 and 3 cities of India, where access to digital payments may be limited, expanding their customer base and market reach."
+            text: "ShipDelight's COD Service provides detailed reports and analytics on COD transactions, offering transparency and visibility into earnings, order status, and payment reconciliation, enabling merchants to make informed decisions and optimize business performance."
         },
     ];
     return (

@@ -30,6 +30,7 @@ const Footer: FC = () => {
     };
     const pathname = usePathname();
     const isNormalLanding = pathname.includes("electronics-industry");
+    const isOdrerTracking = pathname.includes("order-tracking");
     const items: CollapseProps['items'] = [
         {
             key: '1',
@@ -173,6 +174,11 @@ const Footer: FC = () => {
                                     <>
                                         <h2>Ready to Elevate Your Electronics Brand?</h2>
                                         <p>Join the revolution in quick commerce with ShipDelight and give your customers the speed and reliability they demand. Contact us today to learn more about how we can transform your logistics operations and help you deliver excellence.</p>
+                                    </> :
+                                    isOdrerTracking ? 
+                                    <>
+                                        <h2>Don't miss out on this <br /><span>Exclusive Offer!</span></h2>
+                                        <p>Get Started Today, Get in touch with our Q-commerce Expert today to claim your free access to ILogix and unlock the full potential of your D2C brand. Take the first step towards logistics excellence with ShipDelight. Your success journey begins here.</p>
                                     </> :
                                     <>
                                         <h2>One step away from solving logistic puzzles of your brand</h2>

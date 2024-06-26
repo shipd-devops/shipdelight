@@ -308,7 +308,7 @@ export default function Home() {
             <section className="normal-section common-section">
                 <div className="container">
                     <h2 className="purpose-h2 font-700"><span>Why Choose ShipDelight</span> for <br /> Quick Commerce in Electronics?</h2>
-                    <p>With ShipDelight, you gain the power to control your logistics and, consequently, your customer experience. Offer quick commerce services on your own terms, bypass the constraints of traditional marketplaces, and enjoy the benefits of efficient, reliable, and fast delivery solutions.</p>
+                    <p className='half-width'>With ShipDelight, you gain the power to control your logistics and, consequently, your customer experience. Offer quick commerce services on your own terms, bypass the constraints of traditional marketplaces, and enjoy the benefits of efficient, reliable, and fast delivery solutions.</p>
                     <SmallCard noImage cards={cards} />
                 </div>
             </section>
