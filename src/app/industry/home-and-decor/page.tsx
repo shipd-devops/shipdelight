@@ -113,7 +113,7 @@ const page = () => {
                     <div className="banner-info-section full">
                         <div>
                             <h6>Why home & decor industry</h6>
-                            <h2>Charting New Horizons in <span>Home Decor</span></h2>
+                            <h2>Charting New Horizons in <span>Home & Decor</span></h2>
                         </div>
                     </div>
                     <StateCard stats={stats} card></StateCard>
@@ -122,7 +122,7 @@ const page = () => {
             <section className="section-yellow normal-section info-product" id="overviewProduct">
                 <div className="container small">
                     <h6>Role of Shipdelight</h6>
-                    <h2>Elevating Home Decor Logistics with <span>Shipdelight</span></h2>
+                    <h2>Elevating Home & Decor Logistics with <span>Shipdelight</span></h2>
                     <div className='info-product--info'>
                         <div className="info-product--detail-list">
                             {list.map((item, index) => (
