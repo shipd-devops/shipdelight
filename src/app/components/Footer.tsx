@@ -214,7 +214,7 @@ const Footer: FC = () => {
                         </div>
                         <div className="footer--cta--links">
                             <a href='tel:+912249733292'><PhoneIcon /> +91 22 49733292</a>
-                            <a href='mailto:alexa@shipdelight.com'><MailIcon /> alexa@shipdelight.com</a>
+                            <a href='mailto:monica@shipdelight.com'><MailIcon /> monica@shipdelight.com</a>
                         </div>
                     </div>
                 </div>
